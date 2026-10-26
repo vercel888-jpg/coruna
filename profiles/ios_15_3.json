@@ -1,0 +1,90 @@
+{
+  "device": "iPhone10,1",
+  "device_name": "iPhone 8",
+  "chipset": "A11",
+  "architecture": "arm64",
+  "pac": false,
+  "ios_version": "15.3",
+  "build": "19D52",
+  "kernel_version": "Darwin Kernel Version 21.3.0",
+  "offsets": {
+    "kernel": {
+      "base": "0xfffffff007004000",
+      "allproc": "0x8b8f08",
+      "kernproc": "0x8b8f10",
+      "task_bsd_info": "0x388",
+      "proc_pid": "0x68",
+      "proc_ucred": "0xf8",
+      "proc_task": "0x10",
+      "proc_csflags": "0x280",
+      "ucred_cr_uid": "0x18",
+      "ucred_cr_label": "0x78",
+      "task_t_flags": "0x3a0",
+      "task_itk_space": "0x300",
+      "ipc_space_is_table": "0x20"
+    },
+    "dyld_shared_cache": {
+      "base": "0x180000000",
+      "slide_info": "0x58",
+      "images_offset": "0x18",
+      "images_count": "0x1c"
+    },
+    "webkit": {
+      "JSC_base": "0x19a000000",
+      "WebCore_base": "0x1a8000000",
+      "JSCell_structureID": "0x0",
+      "JSObject_butterfly": "0x8",
+      "JSFunction_executable": "0x18",
+      "FunctionExecutable_codeBlock": "0x18",
+      "CodeBlock_jitCode": "0x10",
+      "ArrayBuffer_data": "0x10",
+      "ArrayBuffer_byteLength": "0x18"
+    },
+    "iokit": {
+      "IOSurfaceRootUserClient_vtable": "0xffffff8008a12000",
+      "IOSurface_create_selector": 0,
+      "IOSurface_set_value_selector": 9,
+      "IOSurface_get_value_selector": 10,
+      "IOConnectCallMethod": "0x190234000"
+    },
+    "libsystem": {
+      "libsystem_kernel": "0x1b0200000",
+      "libsystem_c": "0x1b0100000",
+      "libsystem_pthread": "0x1b0300000",
+      "mach_task_self_": "0x1b0200100",
+      "mach_msg": "0x1b0200200",
+      "thread_suspend": "0x1b0200300",
+      "vm_allocate": "0x1b0200400",
+      "mach_vm_map": "0x1b0200500",
+      "dlopen": "0x1b0000100",
+      "dlsym": "0x1b0000200",
+      "posix_spawn": "0x1b0100300"
+    }
+  },
+  "exploit_chain": {
+    "rce": {
+      "cve": "CVE-2022-32893",
+      "type": "WebKit OOB write",
+      "method": "ArraySpecies confusion → butterfly overlap → arbitrary R/W",
+      "patched_in": "15.6.1"
+    },
+    "sandbox_escape": {
+      "cve": "CVE-2022-32894",
+      "type": "IOSurface kernel OOB write",
+      "method": "IOSurface_set_value oversized key → kernel heap corruption",
+      "patched_in": "15.6.1"
+    },
+    "privilege_escalation": {
+      "cve": "CVE-2022-32917",
+      "type": "Kernel type confusion",
+      "method": "Corrupt proc credentials → steal kernel ucred → patch csflags",
+      "patched_in": "15.7"
+    }
+  },
+  "notes": [
+    "A11 Bionic has no PAC - exploitation is simpler (no pointer signing bypass needed)",
+    "iPhone 8 last supported iOS is 16.7.x but stuck on 15.3.1 means all 3 CVEs are exploitable",
+    "WebKit JIT on A11 uses standard RWX region - direct shellcode injection possible",
+    "Kernel heap layout on iOS 15 uses kalloc zones (not kalloc_type like iOS 16+)"
+  ]
+}

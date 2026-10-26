@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791549082300,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[collect] dump_photos result: [photos] native bridge 未就绪"
+    }
+  ]
+}

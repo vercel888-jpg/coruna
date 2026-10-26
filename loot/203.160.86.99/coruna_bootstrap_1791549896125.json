@@ -1,0 +1,13 @@
+{
+  "cmd": "primitive_info",
+  "source": "coruna",
+  "data": {
+    "addrof": "function",
+    "readStr": "function",
+    "read64": "function",
+    "write64": "function",
+    "cleanup": "undefined",
+    "keys": "Bi,_r,Wr,yr,Ii,addrof,fakeobj,read32,readRawBigInt,read32FromInt64,readInt64FromInt64,write32,copyBigInt,writeInt64ToOffset,readString,readStringFromInt64,rr,readByte,readDoubleAsPointer"
+  },
+  "ts": 1791549895697
+}

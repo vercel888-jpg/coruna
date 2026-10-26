@@ -1,0 +1,14 @@
+{
+  "source": "device-log",
+  "ts": 1791541809211,
+  "msgs": [
+    {
+      "level": "fatal",
+      "msg": "SyntaxError: Unexpected token '<'",
+      "src": "blob:https://wpsdz.com/b0d59fdf-103f-4dd2-a4cb-c7d1cbf7ea02",
+      "line": 1,
+      "col": 0,
+      "stack": ""
+    }
+  ]
+}

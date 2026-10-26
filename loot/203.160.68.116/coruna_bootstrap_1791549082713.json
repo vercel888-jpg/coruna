@@ -1,0 +1,7 @@
+{
+  "cmd": "dump_wifi_result",
+  "data": {
+    "result": "[wifi] 需先完成 PE 阶段"
+  },
+  "ts": 1791549082299
+}

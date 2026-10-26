@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541775959,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Stage1 complete — WASM read/write primitives active"
+    }
+  ]
+}

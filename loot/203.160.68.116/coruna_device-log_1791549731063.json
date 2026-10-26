@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791549730638,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[KEYCHAIN] ep=object keys=Bi,_r,Wr,yr,Ii,addrof,fakeobj,read32,readRawBigInt,read32FromInt64,readInt64FromInt64,write32,copyBigInt,writeInt64ToOffset,readString,readStringFromInt64,rr,readByte,readDoubleAsPointer"
+    }
+  ]
+}

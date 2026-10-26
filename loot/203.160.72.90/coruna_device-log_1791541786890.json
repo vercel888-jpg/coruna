@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541786488,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[oh] reading symtab: size=253256 words=63314 from=0x1ffef77a8"
+    }
+  ]
+}

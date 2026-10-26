@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541808928,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-bridge] rce_loader.js loaded"
+    }
+  ]
+}

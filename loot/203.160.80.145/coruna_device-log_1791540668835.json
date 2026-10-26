@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540668505,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Platform: iPhone, UA: Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHT..."
+    }
+  ]
+}

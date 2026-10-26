@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791548658538,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[collect] collect.js v2 initialized"
+    }
+  ]
+}

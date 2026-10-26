@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541350101,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-beacon] beacon.build.js loaded successfully"
+    }
+  ]
+}

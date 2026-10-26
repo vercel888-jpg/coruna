@@ -1,0 +1,8 @@
+{
+  "source": "bootstrap",
+  "cmd": "wallet_scan",
+  "data": {
+    "cookies": ""
+  },
+  "ts": 1791543290182
+}

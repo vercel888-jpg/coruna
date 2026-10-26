@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791539871234,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Skipped (no shell = first run may have failed; retry in Private tab or after clearing site data)."
+    }
+  ]
+}

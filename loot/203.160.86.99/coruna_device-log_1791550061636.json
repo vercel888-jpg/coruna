@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791550061231,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[collect] device ID: 86b9154f6616af2f"
+    }
+  ]
+}

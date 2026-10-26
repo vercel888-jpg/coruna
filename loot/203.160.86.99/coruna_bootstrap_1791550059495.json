@@ -1,0 +1,9 @@
+{
+  "cmd": "read32_result",
+  "source": "coruna",
+  "data": {
+    "addr": "0x10e23c810",
+    "value": "0x234"
+  },
+  "ts": 1791550059085
+}

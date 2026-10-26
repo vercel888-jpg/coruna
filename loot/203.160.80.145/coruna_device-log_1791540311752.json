@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540311410,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[PLATFORM] iOS version detected: 150600"
+    }
+  ]
+}

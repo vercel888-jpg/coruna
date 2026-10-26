@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541798192,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[PATCH] _process at original offset 0x68d8, no redirect needed"
+    }
+  ]
+}

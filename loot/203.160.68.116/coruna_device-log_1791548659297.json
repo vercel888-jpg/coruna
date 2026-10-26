@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791548658847,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-bridge] collect.js loaded"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791550183063,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] === Exploit chain finished — result: 0 ==="
+    }
+  ]
+}

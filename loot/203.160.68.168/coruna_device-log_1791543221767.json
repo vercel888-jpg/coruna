@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791543221311,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "Done b5135768e043d1b362977b8ba9bff678b9946bcb"
+    }
+  ]
+}

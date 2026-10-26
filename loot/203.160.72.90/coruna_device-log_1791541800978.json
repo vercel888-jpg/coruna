@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541800519,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[ESE] entry point T=0xeb1d95cf4, calling caller.jd()..."
+    }
+  ]
+}

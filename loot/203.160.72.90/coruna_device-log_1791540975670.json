@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540975263,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[PLATFORM] Creating image list from JSC base address..."
+    }
+  ]
+}

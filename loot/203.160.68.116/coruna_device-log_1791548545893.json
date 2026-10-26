@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791548545449,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[PLATFORM] Runtime: PSNMWj, JSC base: 0x8b709000"
+    }
+  ]
+}

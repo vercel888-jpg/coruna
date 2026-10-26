@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541194188,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Auto-proceeding with payload delivery (confirm removed)."
+    }
+  ]
+}

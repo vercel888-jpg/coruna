@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791543249024,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-bridge] device ID: coruna_mv0ule2o"
+    }
+  ]
+}

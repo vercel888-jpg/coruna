@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791543275245,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[YA] addrof(TypedArray)=0x113ab7cf0"
+    }
+  ]
+}

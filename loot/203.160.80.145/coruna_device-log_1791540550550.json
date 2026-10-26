@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540550209,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[ESE] Loading bootstrap.dylib..."
+    }
+  ]
+}

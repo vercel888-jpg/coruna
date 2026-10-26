@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791543291749,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[FORCE] not needed, D[0]=0 (bootstrap already requested)"
+    }
+  ]
+}

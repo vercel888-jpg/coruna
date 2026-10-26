@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791543274600,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[ESE] executeSandboxEscape() entered"
+    }
+  ]
+}

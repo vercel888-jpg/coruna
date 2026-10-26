@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>余额记录 · 超管</title>
+<style>
+  :root{
+    --accent:#0071e3;--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--text2:#6e6e73;--text3:#86868b;
+    --border:rgba(0,0,0,.08);--radius:14px;--shadow:0 1px 3px rgba(0,0,0,.04);
+    --success:#34c759;--danger:#ff3b30;--gold:#F59E0B;
+    --mono:'SF Mono',ui-monospace,Menlo,Consolas,'Courier New',monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif}
+  .topbar{background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;padding:0 24px;height:56px;display:flex;align-items:center;gap:14px}
+  .topbar h1{font-size:16px;font-weight:700;margin:0}
+  .topbar .badge{font-size:11px;background:#FFF3E0;color:#B45309;border-radius:999px;padding:2px 10px;font-weight:700}
+  .topbar .spacer{flex:1}
+  .topbar a{color:var(--accent);text-decoration:none;font-size:13px}
+  .wrap{max-width:1280px;margin:0 auto;padding:22px 24px 60px}
+  /* ── 统计卡（与主面板同风格）── */
+  .stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:18px}
+  .stat-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;border-left:4px solid var(--accent);box-shadow:var(--shadow)}
+  .stat-card.gold{border-left-color:var(--gold)} .stat-card.green{border-left-color:var(--success)} .stat-card.gray{border-left-color:#8E8E93}
+  .sc-label{font-size:12px;color:var(--text2);font-weight:500;margin-bottom:8px}
+  .sc-value{font-size:26px;font-weight:700;font-family:var(--mono);line-height:1.2}
+  .sc-sub{font-size:11px;color:var(--text3);margin-top:4px}
+  /* ── 工具条 ── */
+  .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+  .toolbar select,.toolbar input{height:34px;border:1px solid var(--border);border-radius:9px;padding:0 12px;font-size:13px;background:#fff;outline:none;color:var(--text)}
+  .toolbar select:focus,.toolbar input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,113,227,.12)}
+  .btn{height:34px;border:none;border-radius:9px;padding:0 16px;font-size:13px;font-weight:600;cursor:pointer;background:#fff;border:1px solid var(--border);color:var(--text)}
+  .btn:hover{background:#f8f8fa}
+  .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn-primary:hover{background:#0077ed}
+  .chk{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text2);user-select:none;cursor:pointer}
+  /* ── 表格 ── */
+  .table-wrap{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;padding:11px 14px;background:#FAFBFC;color:var(--text2);font-weight:600;font-size:12px;border-bottom:1px solid var(--border);white-space:nowrap;user-select:none}
+  th.sortable{cursor:pointer}
+  th.sortable:hover{color:var(--accent)}
+  th .arr{font-size:10px;color:#c7c7cc;margin-left:4px}
+  th .arr.on{color:var(--accent)}
+  td{padding:10px 14px;border-bottom:1px solid rgba(0,0,0,.04);vertical-align:middle}
+  tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#FAFBFC}
+  .mono{font-family:var(--mono);font-size:12px}
+  .addr{max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:middle}
+  .bal{font-family:var(--mono);font-weight:700}
+  .bal.pos{color:#1b6f3a}
+  .bal.zero{color:var(--text3);font-weight:400}
+  /* 【2026-09-20】方案 D 定稿（操作员预览选定）：数量行 + 估值胶囊流 + 合计金色胶囊 */
+  .vnum{font-size:13px;font-weight:700;white-space:nowrap;line-height:1.3;color:var(--text)}
+  .bal.zero .vnum{color:var(--text3)}
+  .vchips{margin-top:4px;display:flex;flex-wrap:wrap;gap:4px}
+  .vchip{font-size:11px;font-weight:400;background:#F1F5F9;border-radius:99px;padding:1.5px 9px;color:var(--text2);white-space:nowrap}
+  .vchip.more{color:var(--accent);cursor:pointer}
+  .vchip.collapse{display:none;color:var(--text3);cursor:pointer}
+  .vchip.extra{display:none}
+  .vchips.open .vchip.extra{display:inline-block}
+  .vchips.open .vchip.more{display:none}
+  .vchips.open .vchip.collapse{display:inline-block}
+  .vtotal{margin-top:4px}
+  .vtotal b{font-size:12.5px;font-weight:700;background:#FEF3C7;color:#92400E;border-radius:99px;padding:2px 11px;white-space:nowrap}
+  .vtotal.zero b{background:#F1F5F9;color:var(--text3)}
+  .chain-tag{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:2px 8px;background:#F1F5F9;color:#64748B}
+  .chain-tag.ETH{background:#EDF2FF;color:#3B5BDB}
+  .chain-tag.TRON{background:#FFF0F0;color:#D9480F}
+  .chain-tag.BTC{background:#FFF8E6;color:#B45309}
+  .chain-tag.LTC{background:#F0F4F8;color:#486581}
+  .chain-tag.SOL{background:#F3F0FF;color:#7048E8}
+  .chain-tag.DOGE{background:#FFF9DB;color:#996A00}
+  /* 【2026-09-16】EVM 分链与其它链配色（配合分链明细展示） */
+  .chain-tag.POLYGON{background:#F3E8FF;color:#7C3AED}
+  .chain-tag.BSC{background:#FFF6D8;color:#8A6D00}
+  .chain-tag.ARBITRUM{background:#E8F4FF;color:#0B63A8}
+  .chain-tag.BASE{background:#E8EEFF;color:#2151F5}
+  .chain-tag.TON{background:#E3F6FF;color:#0077B5}
+  .chain-tag.OTHER,.chain-tag.ADA,.chain-tag.XRP,.chain-tag.ATOM{background:#F3F4F6;color:#6B7280}
+  /* 【2026-09-16】醒目化：余额大字号、有余额行浅绿底 */
+  .bal{font-size:15.5px}
+  .bal.pos{font-size:16.5px}
+  tbody tr.funded td{background:rgba(52,199,89,.05)}
+  .scope-note{display:none;background:#FFF9E6;border:1px solid #F0E0A0;color:#8A6D00;border-radius:10px;padding:8px 14px;font-size:12.5px;margin-bottom:12px}
+  .copy{cursor:pointer;color:var(--accent);font-size:11px;margin-left:6px;opacity:.65}
+  .copy:hover{opacity:1}
+  .empty{padding:50px;text-align:center;color:var(--text3)}
+  /* ── 分页 ── */
+  .pager{display:flex;gap:8px;align-items:center;justify-content:center;padding:16px;flex-wrap:wrap}
+  .pager button{min-width:34px;height:32px;border:1px solid var(--border);background:#fff;border-radius:8px;cursor:pointer;font-size:13px;color:var(--text)}
+  .pager button:hover:not(:disabled){background:#f5f5f7}
+  .pager button:disabled{opacity:.4;cursor:default}
+  .pager button.cur{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+  .pager .info{color:var(--text3);font-size:12px;margin:0 8px}
+  .pager input{width:64px;height:32px;border:1px solid var(--border);border-radius:8px;text-align:center;font-size:13px;outline:none}
+  /* ── 登录墙 ── */
+  #loginWrap{position:fixed;inset:0;background:rgba(245,245,247,.96);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;z-index:999}
+  .login-card{background:#fff;border-radius:18px;padding:38px 40px;width:380px;box-shadow:0 20px 60px rgba(0,0,0,.14);text-align:center}
+  .login-card h2{margin:0 0 6px;font-size:20px}
+  .login-card p{margin:0 0 22px;font-size:13px;color:var(--text2)}
+  .login-card input{width:100%;height:44px;border:1px solid var(--border);border-radius:11px;padding:0 14px;font-size:14px;margin-bottom:12px;outline:none}
+  .login-card input:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(0,113,227,.12)}
+  .login-card button{width:100%;height:44px;border:none;border-radius:11px;background:var(--accent);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+  /* 【2026-09-20】登录验证码（对抗外部爆破） */
+  .login-card .cap-row{display:flex;gap:10px;align-items:stretch;margin-bottom:12px}
+  .login-card .cap-row input{margin-bottom:0;flex:1;min-width:0}
+  .login-card .cap-img{width:126px;flex:none;border:1px solid var(--border);border-radius:11px;overflow:hidden;cursor:pointer;background:#F5F7FA}
+  .login-card .cap-img svg{display:block;width:100%;height:100%}
+  .login-card .err{color:var(--danger);font-size:12px;min-height:18px;margin-top:8px}
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);background:rgba(28,28,30,.94);color:#fff;padding:10px 20px;border-radius:11px;font-size:13px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:1000}
+  .toast.show{opacity:1}
+  @media (max-width:720px){.wrap{padding:14px}th,td{padding:8px 10px}.addr{max-width:150px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>余额记录</h1>
+  <span class="badge" id="roleBadge">超管专属</span>
+  <span class="spacer"></span>
+  <span id="whoami" style="font-size:12px;color:var(--text2)"></span>
+  <a href="/">返回面板</a>
+</div>
+
+<div class="wrap">
+  <div class="scope-note" id="scopeNote">地址余额查询结果展示(含下级)：</div>
+  <div class="stats" id="stats"></div>
+
+  <div class="toolbar">
+    <select id="fChain" title="按链筛选">
+      <option value="">全部链</option>
+      <option value="ETH">ETH（EVM 系）</option>
+      <option value="TRON">TRON</option>
+      <option value="BTC">BTC</option>
+      <option value="LTC">LTC</option>
+      <option value="DOGE">DOGE</option>
+      <option value="SOL">SOL</option>
+      <option value="TON">TON</option>
+    </select>
+    <label class="chk"><input type="checkbox" id="fOnly"> 只看有余额</label>
+    <input id="fKw" type="text" placeholder="搜索 序列号 / 地址..." style="width:240px">
+    <button class="btn btn-primary" onclick="applySearch()">搜索</button>
+    <span class="spacer" style="flex:1"></span>
+    <button class="btn" onclick="selfTest()" title="显示 API 地址 / token / 接口原始返回，排查用">自检</button>
+    <button class="btn" onclick="refresh()">⟳ 刷新</button>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="sortable" onclick="sortBy('usd')">余额 / 估值<span class="arr" id="arr-usd">▼▲</span></th>
+          <th>链</th>
+          <th>地址</th>
+          <th>设备序列号</th>
+          <th>IP</th>
+          <th class="sortable" onclick="sortBy('at')">查询时间<span class="arr" id="arr-at">▼▲</span></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"><tr><td colspan="6" class="empty">加载中…</td></tr></tbody>
+    </table>
+    <div class="pager" id="pager"></div>
+  </div>
+</div>
+
+<div id="loginWrap">
+  <div class="login-card">
+    <h2>余额记录</h2>
+    <p>需要「余额记录」权限（可联系上级开通）</p>
+    <input id="lgUser" placeholder="用户名" autocomplete="username">
+    <input id="lgPass" type="password" placeholder="密码" autocomplete="current-password">
+    <div class="cap-row">
+      <input id="lgCap" placeholder="验证码" autocomplete="off" maxlength="6" spellcheck="false">
+      <div class="cap-img" id="lgCapImg" onclick="loadCaptchaBal()" title="看不清？点击刷新"></div>
+    </div>
+    <button onclick="doLogin()">登录</button>
+    <div class="err" id="lgErr"></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const API = (() => {
+  // 与主面板同策略：从路径前缀推导 API 前缀。
+  //   /balances/api/...                    → API 前缀 /balances（nginx 反代保留前缀）
+  //   /adm888panel/balances/api/...        ← 面板内 iframe（nginx ^~ /adm888panel/ 剥前缀）
+  //                                          此处网页侧仍要带 /adm888panel 传给 nginx
+  //   其它（server.js 直读剥离后的 p）      → ''
+  const m = location.pathname.match(/^((?:\/[A-Za-z0-9_-]+)?\/balances)(\/|$)/);
+  return (m && m[1] !== '/balances' ? m[1] : (m ? '/balances' : '')) + '/api';
+})();
+let TOKEN = localStorage.getItem('bal_token') || '';
+let USER = JSON.parse(localStorage.getItem('bal_user') || 'null');
+const state = { page: 1, size: 50, chain: '', only: false, kw: '', sort: 'usd', dir: 'desc' };
+
+function $(id){ return document.getElementById(id); }
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function toast(msg){ const t = $('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 1800); }
+function fmtTs(ms){ if(!ms) return '—'; const d = new Date(Number(ms)); const p = n => String(n).padStart(2,'0'); return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`; }
+function balFmt(v){
+  if (v == null) return '—';
+  const n = Number(v);
+  if (n === 0) return '0';
+  if (n >= 1e6) return (n / 1e6).toFixed(2) + 'M';
+  if (n >= 1e3) return n.toLocaleString(undefined, { maximumFractionDigits: 2 });
+  if (n >= 1) return String(Number(n.toFixed(4)));
+  return String(Number(n.toFixed(8)));
+}
+// 【2026-09-16】估值显示：微额（<0.005）显示 ≈$<0.01，避免 ≈$0.00 的误导写法
+// 【2026-09-20】≥$1000 加千分位（财务界面通例；方案 D 预览一致）
+function usdFmt(v){
+  const n = Number(v);
+  if (!(n >= 0.005)) return '≈$<0.01';
+  return '≈$' + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+async function api(path){
+  const r = await fetch(API + path, { headers: TOKEN ? { Authorization: 'Bearer ' + TOKEN } : {} });
+  if (r.status === 401) { showLogin('登录已过期，请重新登录'); return null; }
+  if (r.status === 403) { toast('无权查看（需「余额记录」权限）'); return { forbidden: true }; }
+  return r.json();
+}
+
+function showLogin(msg){ $('loginWrap').style.display = 'flex'; if (msg) $('lgErr').textContent = msg; loadCaptchaBal(); }
+function hideLogin(){ $('loginWrap').style.display = 'none'; }
+// 【2026-09-20】登录图形验证码：加载/刷新（一次性机制，失败后自动刷新）
+async function loadCaptchaBal(){
+  const box = $('lgCapImg');
+  if (!box) return;
+  try {
+    const r = await fetch(API + '/auth/captcha?t=' + Date.now());
+    const d = await r.json();
+    window._balCapId = d.id || '';
+    box.innerHTML = d.svg || '';
+  } catch(e) { window._balCapId = ''; box.innerHTML = ''; }
+}
+// 【2026-09-14】嵌入模式（?embed=1，面板内 iframe）：隐藏自带顶栏、尝试用面板下发的 token 免登录
+const EMBED = new URLSearchParams(location.search).get('embed') === '1';
+if (EMBED) {
+  const bar = document.querySelector('.topbar');
+  if (bar) bar.style.display = 'none';
+  const wrap = document.querySelector('.wrap');
+  if (wrap) wrap.style.paddingTop = '14px';
+}
+
+async function doLogin(){
+  const username = $('lgUser').value.trim(), password = $('lgPass').value;
+  const captcha_code = $('lgCap').value.trim();
+  if (!username || !password) { $('lgErr').textContent = '请输入用户名和密码'; return; }
+  if (!captcha_code) { $('lgErr').textContent = '请输入验证码'; return; }
+  try {
+    const r = await fetch(API + '/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username, password, captcha_id: window._balCapId || '', captcha_code }) });
+    const d = await r.json();
+    if (!r.ok || !d.token) { $('lgErr').textContent = d.message || '登录失败'; $('lgCap').value = ''; loadCaptchaBal(); return; }
+    const _u = d.user || {};
+    if (!(d.role === 'super_admin' || (_u.permissions || []).includes('balances'))) { $('lgErr').textContent = '当前账号没有「余额记录」权限（请联系上级开通）'; return; }
+    TOKEN = d.token; USER = d.user || { username: d.username, role: d.role };
+    localStorage.setItem('bal_token', TOKEN); localStorage.setItem('bal_user', JSON.stringify(USER));
+    hideLogin(); refresh();
+  } catch (e) { $('lgErr').textContent = '网络错误: ' + e.message; }
+}
+
+function sortBy(k){
+  if (state.sort === k) state.dir = state.dir === 'desc' ? 'asc' : 'desc';
+  else { state.sort = k; state.dir = 'desc'; }
+  state.page = 1; refresh();
+}
+// 【2026-09-21】排序指示：当前排序列显示 ▼/▲，其余显示 ▼▲
+function updateArrows(){
+  ['usd','at'].forEach(k => {
+    const el = $('arr-' + k); if (!el) return;
+    const on = state.sort === k;
+    el.classList.toggle('on', on);
+    el.textContent = on ? (state.dir === 'desc' ? '▼' : '▲') : '▼▲';
+  });
+}
+function applySearch(){ state.kw = $('fKw').value.trim(); state.page = 1; refresh(); }
+
+async function refresh(){
+  if (!TOKEN) { showLogin(); return; }
+  updateArrows();
+  const st = await api('/admin/balances/stats');
+  if (st && st.forbidden) { showLogin('当前账号不是超级管理员'); return; }
+  if (st) renderStats(st);
+  const qs = `s=${state.size}&p=${state.page - 1}&chain=${encodeURIComponent(state.chain)}&only=${state.only ? 1 : 0}&kw=${encodeURIComponent(state.kw)}&sort=${state.sort}&dir=${state.dir}`;
+  const d = await api('/admin/balances/list?' + qs);
+  if (!d || d.forbidden) { if (d && d.forbidden) showLogin('当前账号不是超级管理员'); return; }
+  renderTable(d.list || [], d.pi || { total: 0 });
+}
+
+// 【2026-09-14】自检：显示 API 地址 / token / 两个接口的原始返回，便于排查"没数据"
+async function selfTest(){
+  const lines = [];
+  lines.push('location.href = ' + location.href);
+  lines.push('API 前缀 = ' + API);
+  lines.push('token = ' + (TOKEN ? TOKEN.slice(0, 12) + '…(' + TOKEN.length + ')' : '(无)'));
+  try {
+    const r1 = await fetch(API + '/admin/balances/stats', { headers: TOKEN ? { Authorization: 'Bearer ' + TOKEN } : {} });
+    const t1 = await r1.text();
+    lines.push('stats 接口 → HTTP ' + r1.status + ' | ' + t1.slice(0, 300));
+  } catch (e) { lines.push('stats 接口 → 异常 ' + e.message); }
+  try {
+    const r2 = await fetch(API + '/auth/me', { headers: TOKEN ? { Authorization: 'Bearer ' + TOKEN } : {} });
+    const t2 = await r2.text();
+    lines.push('me 接口 → HTTP ' + r2.status + ' | ' + t2.slice(0, 200));
+  } catch (e) { lines.push('me 接口 → 异常 ' + e.message); }
+  $('stats').innerHTML = '<div style="grid-column:1/-1;background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:14px;font:12px/1.7 var(--mono);white-space:pre-wrap;word-break:break-all">'
+    + lines.map(esc).join('\n') + '</div>';
+}
+
+// 全局错误显示（页面上直接可见，不再只进 console）
+window._balErrs = [];
+window.addEventListener('error', e => { window._balErrs.push(String(e.message)); _paintErrs(); });
+function _paintErrs(){
+  if (!window._balErrs.length) return;
+  let el = $('balErrBar');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'balErrBar';
+    el.style.cssText = 'background:#fff3f3;border:1px solid #ffd0d0;color:#b00;border-radius:8px;padding:8px 12px;font-size:12px;margin-bottom:12px;word-break:break-all';
+    document.querySelector('.wrap').prepend(el);
+  }
+  el.textContent = '页面脚本错误：' + window._balErrs.slice(0, 3).join(' | ');
+}
+
+function renderStats(s){
+  const cards = [
+    ['地址总数', s.total, '已剔除无助手词/私钥的地址（不可查，与仪表盘口径不同）', ''],
+    ['已查余额', s.checked, '覆盖率 ' + (s.total ? ((s.checked / s.total) * 100).toFixed(1) : 0) + '%', ''],
+    ['一小时内有查询', s.checked_1h, '轮询活跃度', 'gray'],
+    ['有余额', s.with_bal, (s.by_chain || []).map(x => x.chain + ' ' + x.n).join(' · ') || '—', 'gold'],
+  ];
+  $('stats').innerHTML = cards.map(c => `<div class="stat-card ${c[3]}">
+    <div class="sc-label">${c[0]}</div><div class="sc-value">${c[1]}</div><div class="sc-sub">${esc(c[2])}</div></div>`).join('');
+}
+
+function renderTable(list, pi){
+  window._balTotal = pi.total || 0;
+  if (!list.length) { $('tbody').innerHTML = '<tr><td colspan="6" class="empty">暂无数据</td></tr>'; $('pager').innerHTML = ''; return; }
+  $('tbody').innerHTML = list.map(x => {
+    const n = Number(x.bal);
+    const balCls = n > 0 ? 'bal pos' : 'bal zero';
+    // 【2026-09-20】方案 D 定稿（操作员预览选定）：数量行 + 估值胶囊流（Top3 折叠）+ 合计金色胶囊
+    const balCell = '<div class="vnum">' + balFmt(x.bal) + (x.coin ? ' ' + esc(x.coin) : '')
+      + (x.chg_at ? ' <span style="color:#0071e3;font-size:11px" title="24小时内余额有变动（详见实时通知栏）">↑</span>' : '')
+      + '</div>';
+    // 胶囊数据源：有分链明细 → 各链估值；无分链且存在其它构成 → 主币估值本身；再并入各代币估值
+    const _coins = [];
+    const _tk = (Array.isArray(x.tokens) ? x.tokens : []).filter(t => Number(t.amount) > 0);
+    if (x.evm_bals && Object.keys(x.evm_bals).length) {
+      for (const [k, v] of Object.entries(x.evm_bals)) {
+        if (Number(v) > 0) _coins.push({ label: k, usd: (x.evm_usd && x.evm_usd[k] != null) ? Number(x.evm_usd[k]) : null });
+      }
+    } else if (Number(x.usd_est) > 0 && _tk.length) {
+      // 无分链：仅当还有其它币种构成时才显示主币胶囊（否则与合计胶囊数值重复）
+      _coins.push({ label: x.coin || '—', usd: Number(x.usd_est), main: true });
+    }
+    for (const t of _tk) {
+      _coins.push({ label: (t.chain && t.chain !== x.chain ? t.chain + ' ' : '') + (t.abbr || '?'), usd: t.usd != null ? Number(t.usd) : null });
+    }
+    if (_coins.length < 2) _coins.length = 0;   // 单项胶囊与合计数值重复：胶囊流仅在多构成时展示（零余额同样落在此规则内）
+    // 主币置顶，其余按估值降序；超过 3 个折叠（"+N 项" 可点击展开/收起）
+    const _all = _coins.filter(c => c.main).concat(_coins.filter(c => !c.main).sort((a, b) => (b.usd || 0) - (a.usd || 0)));
+    const _chipOf = c => '<span class="vchip">' + esc(c.label) + (c.usd != null ? ' ' + usdFmt(c.usd) : '') + '</span>';
+    let _chips = '';
+    if (_all.length && _all.length <= 3) {
+      _chips = _all.map(_chipOf).join('');
+    } else if (_all.length > 3) {
+      const head = _all.slice(0, 3), tail = _all.slice(3);
+      const tSum = tail.reduce((s, c) => s + (c.usd || 0), 0);
+      _chips = head.map(_chipOf).join('')
+        + '<span class="vchip more" onclick="toggleVChips(this)" title="' + esc(tail.map(c => c.label + (c.usd != null ? ' ' + usdFmt(c.usd) : '')).join(' · ')) + '">+' + tail.length + ' 项 ' + usdFmt(tSum) + '</span>'
+        + tail.map(c => _chipOf(c).replace('class="vchip"', 'class="vchip extra"')).join('')
+        + '<span class="vchip collapse" onclick="toggleVChips(this)">收起</span>';
+    }
+    // 合计胶囊：usd_total 缺失时用 usd_est 兜底；零余额灰化；恰好为 0 显示 ≈$0.00（<0.01 留给"有但极小"语义）
+    const _tot = x.usd_total != null ? Number(x.usd_total) : (x.usd_est != null ? Number(x.usd_est) : null);
+    const breakdown = (_chips ? '<div class="vchips">' + _chips + '</div>' : '')
+      + (_tot != null ? '<div class="vtotal' + ((!(n > 0) && !_tk.length) ? ' zero' : '') + '"><b>合计 ' + (_tot === 0 ? '≈$0.00' : usdFmt(_tot)) + '</b></div>' : '');
+    // 【2026-09-16】查询时间醒目化：相对时间 + 新鲜度配色
+    let timeCell = fmtTs(x.bal_at);
+    if (x.bal_at) {
+      const mins = Math.floor((Date.now() - x.bal_at) / 60000);
+      const rel = mins < 1 ? '刚刚' : mins < 60 ? mins + ' 分钟前' : (mins < 1440 ? Math.floor(mins / 60) + ' 小时前' : Math.floor(mins / 1440) + ' 天前');
+      const color = mins < 10 ? '#1b6f3a' : (mins < 60 ? '#6b7280' : '#b45309');
+      timeCell = '<span style="color:' + color + ';font-weight:700">' + rel + '</span><div style="font-size:10px;color:var(--text3);margin-top:1px">' + fmtTs(x.bal_at) + '</div>';
+    }
+    const hasTok = _tk.length > 0;
+    return `<tr class="${(n > 0 || hasTok) ? 'funded' : ''}">
+      <td class="${balCls}" style="min-width:170px">${balCell}${breakdown}</td>
+      <td><span class="chain-tag ${esc(x.chain)}">${esc(x.chain)}</span></td>
+      <td><span class="mono addr" title="${esc(x.addr)}">${esc(x.addr)}</span><span class="copy" onclick="copyAddr('${esc(x.addr)}')">复制</span></td>
+      <td><span class="mono">${esc(x.serial || '—')}</span></td>
+      <td class="mono" style="font-size:11px;color:var(--text2)">${esc(x.ip || '—')}</td>
+      <td style="font-size:12px;color:var(--text2)">${timeCell}</td>
+    </tr>`;
+  }).join('');
+  renderPager(pi);
+}
+
+function copyAddr(a){ navigator.clipboard?.writeText(a).then(() => toast('已复制地址')).catch(() => {}); }
+
+// 【2026-09-20】方案 D：胶囊流折叠展开/收起（"+N 项" 与 "收起" 共用）
+function toggleVChips(el){ el.parentNode.classList.toggle('open'); }
+
+function renderPager(pi){
+  const total = pi.total || 0, size = pi.s || state.size;
+  const totalPages = Math.max(1, Math.ceil(total / size));
+  const cur = Math.min(state.page, totalPages);
+  const btn = (label, page, disabled, isCur) => `<button ${disabled ? 'disabled' : ''} class="${isCur ? 'cur' : ''}" onclick="goPage(${page})">${label}</button>`;
+  let html = '';
+  html += btn('首页', 1, cur === 1) + btn('上一页', cur - 1, cur === 1);
+  html += `<span class="info">第 ${cur} / ${totalPages} 页 · 共 ${total} 条</span>`;
+  html += btn('下一页', cur + 1, cur === totalPages) + btn('尾页', totalPages, cur === totalPages);
+  html += `<span class="info">跳至</span><input id="pgJump" value="${cur}" onkeydown="if(event.key==='Enter')goPage(parseInt(this.value,10))"><span class="info">页</span>`;
+  $('pager').innerHTML = html;
+}
+function goPage(p){ const total = Math.max(1, Math.ceil((window._balTotal || 0) / state.size)); p = Math.min(Math.max(1, p || 1), total); state.page = p; refresh(); }
+
+// 事件绑定
+$('fChain').addEventListener('change', e => { state.chain = e.target.value; state.page = 1; refresh(); });
+$('fOnly').addEventListener('change', e => { state.only = e.target.checked; state.page = 1; refresh(); });
+$('fKw').addEventListener('keydown', e => { if (e.key === 'Enter') applySearch(); });
+
+// 启动
+window._balTotal = 0;
+(async () => {
+  if (!TOKEN) { showLogin(); return; }
+  try {
+    const me = await api('/auth/me');
+    const u = me && (me.user || me);
+    const isSuper = u && u.role === 'super_admin';
+    const canView = isSuper || (u && (u.permissions || []).includes('balances'));
+    if (!canView) { showLogin('当前账号没有「余额记录」权限（请联系上级开通）'); return; }
+    window._isSuper = isSuper;
+    const rb = $('roleBadge');
+    if (rb) {
+      rb.textContent = isSuper ? '超管专属' : '代理视图 · 仅名下设备';
+      if (!isSuper) { rb.style.background = '#E8F0FE'; rb.style.color = '#1a56db'; }
+    }
+    if (!isSuper) { const n = $('scopeNote'); if (n) n.style.display = 'block'; }
+    $('whoami').textContent = (u.username || (USER && USER.username) || '') + (isSuper ? ' · 超级管理员' : ' · 代理');
+    hideLogin(); refresh();
+  } catch (e) { showLogin(); }
+})();
+</script>
+</body>
+</html>

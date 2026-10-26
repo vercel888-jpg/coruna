@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540641450,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Reporting result: 0"
+    }
+  ]
+}

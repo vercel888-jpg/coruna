@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791550564576,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[Vd] Gd=true, returning 0"
+    }
+  ]
+}

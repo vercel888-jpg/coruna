@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541251759,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-beacon] wifi result: [wifi] 需先完成 PE 阶段"
+    }
+  ]
+}

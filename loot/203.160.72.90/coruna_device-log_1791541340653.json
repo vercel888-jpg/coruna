@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541340241,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[YA] impl(Q+CN3rr_=16)=0x122a572e0"
+    }
+  ]
+}

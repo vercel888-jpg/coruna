@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540526685,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[DIAG] ver=150600 hasPAC=false runtime=undefined cxrfKw=168 dzBoEE=312 PyEQqC=56 iBTCSN=200 SiBW7G=8 DXnm2a=568 NUd9MZ=208 PIQrsf=216 rvXShf=48 sKfNmf=true OwGD0F=true NUFCII=true"
+    }
+  ]
+}

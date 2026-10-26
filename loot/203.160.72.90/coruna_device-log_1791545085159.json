@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791545084712,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Stage1 module loaded, executing WASM primitive exploit..."
+    }
+  ]
+}

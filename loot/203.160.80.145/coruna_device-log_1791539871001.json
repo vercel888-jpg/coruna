@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791539870648,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] If you did not get a shell, clear Safari data for this site or use Private tab and reload."
+    }
+  ]
+}

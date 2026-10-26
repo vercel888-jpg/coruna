@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547918128,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Selecting stage1 variant for offsets: JtEUci=undefined, KeCRDQ=false, ShQCsB=true, RbKS6p=false, mmrZ0r=false"
+    }
+  ]
+}

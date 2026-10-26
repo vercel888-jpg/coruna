@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791544315855,
+  "msgs": [
+    {
+      "level": "error",
+      "msg": "[LOADER] ABORT: No stage1 module matched"
+    }
+  ]
+}

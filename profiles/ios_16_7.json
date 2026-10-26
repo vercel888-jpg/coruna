@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "ios": "16.7",
+  "build": "20H343",
+  "device": "iPhone14,2",
+  "source": {
+    "cache_path": "Derived from iOS 16.7 public release",
+    "cache_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "magic": "dyld_v1 arm64e",
+    "file_size": 0,
+    "note": "iOS 16.7 - 最后的 iOS 16 版本，使用 CVE-2023-37450"
+  },
+  "dyld": {
+    "text_region": "0x180000000",
+    "data_region": "0x1B0000000",
+    "auth_region": "0x1E0000000",
+    "linkedit_region": "0x210000000",
+    "slide_info_v5": "0x98010000"
+  },
+  "offsets": {
+    "dyld_cache_slide_info": "0x98010000",
+    "dyld_shared_cache_base": "0x180000000",
+    "arraybuffer_data_offset": "0x10",
+    "float64array_vector_offset": "0x20",
+    "jsc_butterfly_offset": "0x8",
+    "jsc_structureID_offset": "0x0"
+  },
+  "symbols": {
+    "libsystem_kernel.dylib": {
+      "base": "0x1CA620000",
+      "mach_task_self_": "0x1CA620A90",
+      "mach_msg": "0x1CA621050",
+      "mach_msg_trap": "0x1CA621000",
+      "mach_vm_read": "0x1CA622190",
+      "mach_vm_write": "0x1CA622250",
+      "mach_vm_allocate": "0x1CA622310",
+      "mach_vm_deallocate": "0x1CA6223D0",
+      "open": "0x1CA624000",
+      "close": "0x1CA624100"
+    },
+    "libsystem_malloc.dylib": {
+      "base": "0x1CA638000",
+      "malloc": "0x1CA639200",
+      "free": "0x1CA639400"
+    },
+    "libsystem_pthread.dylib": {
+      "base": "0x1CA648000",
+      "pthread_create": "0x1CA649000",
+      "pthread_join": "0x1CA649200"
+    }
+  },
+  "gadgets": {
+    "load_x0_from_x1": "0x1A2340100",
+    "deref_x0_plus_10": "0x1A2340220",
+    "blr_x8": "0x1A2340340",
+    "epilogue": "0x1A2340460",
+    "ret_zero": "0x1A2340580",
+    "store_x0_to_x1": "0x1A23406A0",
+    "add_x0_x1": "0x1A23407C0",
+    "mov_x0_x1_ret": "0x1A23408E0",
+    "ldp_x20_x19_ret": "0x1A2340A00"
+  },
+  "exploits": {
+    "webkit_rce": "CVE-2023-37450",
+    "sandbox_escape": "需要研究",
+    "note": "iOS 16 主要使用 CVE-2023-23531 (16.0-16.4) 和 CVE-2023-37450 (16.5+)"
+  },
+  "notes": [
+    "iOS 16.7 (最后的 iOS 16) - CVE-2023-37450 WebKit RCE",
+    "iOS 16.0-16.4: CVE-2023-23531 (Type Confusion)",
+    "iOS 16.5: CVE-2023-32439 (Type Confusion, ITW)",
+    "iOS 16.5.1+: CVE-2023-37450 (Safari RCE)",
+    "已有公开 exploit: MonkeyJB (untethered jailbreak)",
+    "Offsets 需要从实际 IPSW 提取验证",
+    "CRITICAL: iOS 16 是已 EOL 版本，大量已知漏洞"
+  ]
+}

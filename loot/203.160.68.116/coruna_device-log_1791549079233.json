@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791549078816,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[collect] executing dump_photos via CMD_HANDLERS"
+    }
+  ]
+}

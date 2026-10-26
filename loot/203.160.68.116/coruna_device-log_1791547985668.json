@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547985233,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Loading payload: 7a7d99099b035b2c6512b6ebeeea6df1ede70fbb"
+    }
+  ]
+}

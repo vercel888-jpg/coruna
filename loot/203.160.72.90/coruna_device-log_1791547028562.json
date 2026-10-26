@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547028187,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[jd] returned! o[0]=0x6d964678 o[1]=0x1"
+    }
+  ]
+}

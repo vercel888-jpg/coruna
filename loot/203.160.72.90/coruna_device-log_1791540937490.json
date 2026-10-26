@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540937073,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "Loading Stage3_VariantB.js"
+    }
+  ]
+}

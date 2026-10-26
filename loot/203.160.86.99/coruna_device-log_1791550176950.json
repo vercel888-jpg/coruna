@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791550176553,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[YA] write32 done, building E object..."
+    }
+  ]
+}

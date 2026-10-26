@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791549128409,
+  "msgs": [
+    {
+      "level": "error",
+      "msg": "Error"
+    }
+  ]
+}

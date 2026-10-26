@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791550058783,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[KEYCHAIN] read32 at addr: 0x234"
+    }
+  ]
+}

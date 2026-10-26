@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547031924,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "Downloading payloads/manifest.json"
+    }
+  ]
+}

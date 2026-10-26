@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791548527257,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Stage1 attempt 2/20..."
+    }
+  ]
+}

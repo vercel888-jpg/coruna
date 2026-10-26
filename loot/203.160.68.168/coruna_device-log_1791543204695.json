@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791543204237,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "Load 14669ca3b1519ba2a8f40be287f646d4d7593eb0"
+    }
+  ]
+}

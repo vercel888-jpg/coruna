@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791550617294,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[KEYCHAIN] exploitPrimitive=object"
+    }
+  ]
+}

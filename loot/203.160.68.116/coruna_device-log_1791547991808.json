@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547991373,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[collect] scanning IndexedDB..."
+    }
+  ]
+}

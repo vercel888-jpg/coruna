@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540624973,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[SBE] MetaAllocator resolved: 0x18b0e4ac8"
+    }
+  ]
+}

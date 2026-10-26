@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791549188977,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[collect] collect.js v3 initialized — qbrdr interceptor active"
+    }
+  ]
+}

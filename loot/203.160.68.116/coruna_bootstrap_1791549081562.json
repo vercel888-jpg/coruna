@@ -1,0 +1,7 @@
+{
+  "cmd": "dump_keychain_result",
+  "data": {
+    "result": "[keychain] 需先完成 PE 阶段"
+  },
+  "ts": 1791549081147
+}

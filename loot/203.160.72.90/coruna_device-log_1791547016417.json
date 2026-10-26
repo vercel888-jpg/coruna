@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547016044,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[Ud] pre-jd: Qd=0x18b2044cc i=0x308044100 c=0x308044300"
+    }
+  ]
+}

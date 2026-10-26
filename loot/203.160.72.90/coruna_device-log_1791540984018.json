@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540983607,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[SBE] calling Vd()..."
+    }
+  ]
+}

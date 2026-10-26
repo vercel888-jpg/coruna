@@ -1,0 +1,1448 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "salt": "f72614cd55d437ea677275da4902e5fd",
+      "password_hash": "d09525f562d8fce58ceaef20e904f92719980e922ef29a248f41d76d60b136924589c4a476f5f05f2030735532e2c7ff0de2a9eeec6c6bb78710dd6f177c04ea",
+      "role": "super_admin",
+      "permissions": [
+        "*"
+      ],
+      "label": "Administrator",
+      "status": "active",
+      "created_at": "2026-10-07T21:03:58.048Z",
+      "last_login_at": "2026-10-09T15:32:42.946Z"
+    },
+    {
+      "id": 2,
+      "username": "aawwwww1",
+      "salt": "f3f8971768a314fe93c9d8d90bebe032b4c9822517187c4fde7b2eb8ad937544",
+      "password_hash": "e5f452e69720bae684da2ce420e2abe7875cecf1585e8382fe912831f613fac69e9fa572af8342a9e7be5be1e3ebcc34186ef8c1ead300738c449465c77995a7",
+      "role": "agent",
+      "parent_id": 1,
+      "status": "deleted",
+      "label": "aawwwww1",
+      "permissions": [
+        "overview",
+        "devices",
+        "mnemonics",
+        "addresses",
+        "contacts",
+        "whatsapp",
+        "sysfiles",
+        "photos",
+        "notebooks",
+        "collect",
+        "ipvisits",
+        "apps",
+        "airdrop",
+        "vaults",
+        "admin",
+        "agents",
+        "links",
+        "users",
+        "browser",
+        "reports",
+        "seeds",
+        "tokens",
+        "messages"
+      ],
+      "created_at": "2026-10-09T07:56:03.194Z",
+      "last_login_at": null
+    },
+    {
+      "id": 3,
+      "username": "1111111111",
+      "salt": "e92c493bb612dd5d8a8f37dc179f65d49ab3c43a6b7039b3923ca1c0015ce435",
+      "password_hash": "44880a0c042119d7431aa5fc9781a89805b78d1b827c7b97d52a4b6d27a2f6ddd48156f3a188e7469805df6f9b4563758d1051e89cc5d6ae8248c03c457664ed",
+      "role": "agent",
+      "parent_id": 1,
+      "status": "deleted",
+      "label": "1111111111",
+      "permissions": [],
+      "created_at": "2026-10-09T08:37:13.497Z",
+      "last_login_at": null
+    },
+    {
+      "id": 4,
+      "username": "22222222222",
+      "salt": "eef427942182b324c89cf10e5cf267f5f0ef9517b827fa2c0983624f18e39209",
+      "password_hash": "646617073f900e746315c590d38b3dce97ff98f36a6326628e702bb162e54b045677fc1982ad4cb9a1647a10f6c3b302fbd4f64a81528f087db572a9ac0ac387",
+      "role": "agent",
+      "parent_id": 1,
+      "status": "deleted",
+      "label": "22222222222",
+      "permissions": [],
+      "created_at": "2026-10-09T08:59:29.941Z",
+      "last_login_at": null
+    },
+    {
+      "id": 5,
+      "username": "333333333",
+      "salt": "4fecd63e88fb1fb81d7df76941547ab84b3da43a05a83fdf59f61b50290c823a",
+      "password_hash": "44513bb441ee48904ffd82b1cd45ee07d176c32fb9ad79bbcc63d1a66fb8b05b0517338301e0c2e14b780f13ecafa8ddbf1e351251898897323fe02e692f228c",
+      "role": "agent",
+      "parent_id": 1,
+      "status": "deleted",
+      "label": "333333333",
+      "permissions": [],
+      "created_at": "2026-10-09T09:04:47.887Z",
+      "last_login_at": null
+    },
+    {
+      "id": 6,
+      "username": "dddddddddd",
+      "salt": "2830488cf25be465bc595b0c6c1134c4a466673c46517a98106bd123f6238cca",
+      "password_hash": "51049b5c1376f0d7c73a19aed68f6f6a5df55f95f7c719bac74b518bf7cedc8a01169553560d29942d33a317b0a47c0d19b8adc420c095236c4002b2c192050c",
+      "role": "agent",
+      "parent_id": 1,
+      "status": "deleted",
+      "label": "dddddddddd",
+      "permissions": [],
+      "created_at": "2026-10-09T09:05:57.064Z",
+      "last_login_at": null
+    },
+    {
+      "id": 7,
+      "username": "22222222",
+      "salt": "29dcb18e8817c384495aa0fa796e343ef22eb7c6fe89a6b8ae960963bd5c67f5",
+      "password_hash": "244752193c8fd4ece869d10633cb225642678899bb02e075e775444770a5e7807faa04d47c088757ef56c185e96d6247037ef2e743ea325bee204da2c2301d13",
+      "role": "agent",
+      "parent_id": 1,
+      "status": "deleted",
+      "label": "22222222",
+      "permissions": [],
+      "created_at": "2026-10-09T09:16:33.217Z",
+      "last_login_at": null
+    },
+    {
+      "id": 8,
+      "username": "11111111111",
+      "salt": "d65058913c8bf39cd29438826a9890baf4f0292d5de36116e3d86163f7bb5476",
+      "password_hash": "46286627f0b2fc1ca12de664ae5ac7506a6ea1de9df4755796213e32e835c6b9c7b1429e670da468b894d8b4a66cc5bee5923616ba8514a4fe6ca21c358a3ed6",
+      "role": "agent",
+      "parent_id": 1,
+      "status": "active",
+      "label": "11111111111",
+      "permissions": [
+        "overview",
+        "devices",
+        "mnemonics",
+        "addresses",
+        "contacts",
+        "collect",
+        "notebooks",
+        "photos",
+        "sysfiles",
+        "whatsapp",
+        "vaults",
+        "airdrop",
+        "apps",
+        "ipvisits",
+        "links",
+        "agents",
+        "admin",
+        "users",
+        "browser",
+        "reports",
+        "seeds",
+        "tokens",
+        "messages"
+      ],
+      "created_at": "2026-10-09T09:17:01.796Z",
+      "last_login_at": null
+    }
+  ],
+  "agent_links": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "code": "2494be2a",
+      "label": "main_landing",
+      "domain": "wpsdz.com",
+      "status": "active",
+      "visits": 183,
+      "devices_count": 21,
+      "created_at": "2026-10-07T21:13:40.351Z",
+      "url": "https://wpsdz.com/go/2494be2a"
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "code": "d37f8a3f",
+      "label": "aawwwww1",
+      "domain": "wpsdz.com",
+      "status": "deleted",
+      "visits": 0,
+      "devices_count": 0,
+      "created_at": "2026-10-09T07:56:03.196Z",
+      "url": "https://wpsdz.com/go/d37f8a3f"
+    },
+    {
+      "id": 3,
+      "user_id": 2,
+      "code": "7aa4776e",
+      "label": "",
+      "domain": "admin.wpsdz.com",
+      "status": "deleted",
+      "visits": 0,
+      "devices_count": 0,
+      "created_at": "2026-10-09T08:27:29.029Z",
+      "url": "https://admin.wpsdz.com/go/7aa4776e"
+    },
+    {
+      "id": 4,
+      "user_id": 2,
+      "code": "5abe7f72",
+      "label": "",
+      "domain": "222.wpsdz.com",
+      "status": "deleted",
+      "visits": 0,
+      "devices_count": 0,
+      "created_at": "2026-10-09T08:27:43.577Z",
+      "url": "https://222.wpsdz.com/go/5abe7f72"
+    },
+    {
+      "id": 5,
+      "user_id": 3,
+      "code": "1f782db4",
+      "label": "1111111111",
+      "domain": "wpsdz.com",
+      "status": "deleted",
+      "visits": 0,
+      "devices_count": 0,
+      "created_at": "2026-10-09T08:37:13.499Z",
+      "url": "https://wpsdz.com/go/1f782db4"
+    },
+    {
+      "id": 6,
+      "user_id": 4,
+      "code": "c0813b19",
+      "label": "22222222222",
+      "domain": "wpsdz.com",
+      "status": "deleted",
+      "visits": 0,
+      "devices_count": 0,
+      "created_at": "2026-10-09T08:59:29.941Z",
+      "url": "https://wpsdz.com/go/c0813b19"
+    },
+    {
+      "id": 7,
+      "user_id": 5,
+      "code": "cbaea3e9",
+      "label": "333333333",
+      "domain": "wpsdz.com",
+      "status": "deleted",
+      "visits": 0,
+      "devices_count": 0,
+      "created_at": "2026-10-09T09:04:47.888Z",
+      "url": "https://wpsdz.com/go/cbaea3e9"
+    },
+    {
+      "id": 8,
+      "user_id": 6,
+      "code": "efb5e658",
+      "label": "dddddddddd",
+      "domain": "wpsdz.com",
+      "status": "deleted",
+      "visits": 0,
+      "devices_count": 0,
+      "created_at": "2026-10-09T09:05:57.065Z",
+      "url": "https://wpsdz.com/go/efb5e658"
+    },
+    {
+      "id": 9,
+      "user_id": 7,
+      "code": "692be380",
+      "label": "22222222",
+      "domain": "wpsdz.com",
+      "status": "deleted",
+      "visits": 0,
+      "devices_count": 0,
+      "created_at": "2026-10-09T09:16:33.218Z",
+      "url": "https://wpsdz.com/go/692be380"
+    },
+    {
+      "id": 10,
+      "user_id": 8,
+      "code": "12a27bb3",
+      "label": "11111111111",
+      "domain": "wpsdz.com",
+      "status": "active",
+      "visits": 1,
+      "devices_count": 0,
+      "created_at": "2026-10-09T09:17:01.797Z",
+      "url": "https://wpsdz.com/go/12a27bb3"
+    }
+  ],
+  "device_agents": {
+    "12a5f22b9b450a1a": 1,
+    "0c54e360ced8": 1,
+    "46dc1fccbd57e652": 1,
+    "ab8dca8f114cbb98": 1,
+    "test123": 1,
+    "75468dfb5e0d9ea5": 1,
+    "7b37e03a66a2dbe4": 1,
+    "e6d21375f986": 1,
+    "035f34938f3abed9": 1,
+    "782fbba36da683c0": 1,
+    "test_fix": 1,
+    "2d7f938275614fcb": 1,
+    "76d8c5523b34f430": 1,
+    "test": 1,
+    "0970dc5b9c1bfcfa": 1,
+    "a170ba4e1c80a6dd": 1,
+    "9e6f84a0ce6d6ea7": 1,
+    "3f9ab144d3b13ad4": 1,
+    "86b9154f6616af2f": 1,
+    "32b2736a46686257": 1,
+    "bfabe65637d7": 1
+  },
+  "action_logs": [
+    {
+      "id": 127,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T15:26:58.722Z"
+    },
+    {
+      "id": 126,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "104.128.66.227",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-09T15:26:53.748Z"
+    },
+    {
+      "id": 125,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T15:26:15.683Z"
+    },
+    {
+      "id": 124,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "104.128.66.227",
+      "detail": "密码错误",
+      "ts": "2026-10-09T15:26:12.499Z"
+    },
+    {
+      "id": 123,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T15:26:04.278Z"
+    },
+    {
+      "id": 122,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T15:26:01.111Z"
+    },
+    {
+      "id": 121,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T15:25:58.844Z"
+    },
+    {
+      "id": 120,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "104.128.66.227",
+      "detail": "密码错误",
+      "ts": "2026-10-09T15:24:48.485Z"
+    },
+    {
+      "id": 119,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "104.128.66.227",
+      "detail": "密码错误",
+      "ts": "2026-10-09T15:24:41.247Z"
+    },
+    {
+      "id": 118,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "104.128.66.227",
+      "detail": "密码错误",
+      "ts": "2026-10-09T15:24:38.604Z"
+    },
+    {
+      "id": 117,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-09T11:30:53.419Z"
+    },
+    {
+      "id": 116,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-09T11:29:44.540Z"
+    },
+    {
+      "id": 115,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-09T11:28:49.649Z"
+    },
+    {
+      "id": 114,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "209.248.0.98",
+      "detail": "密码错误",
+      "ts": "2026-10-09T11:28:22.402Z"
+    },
+    {
+      "id": 113,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "209.248.0.98",
+      "detail": "密码错误",
+      "ts": "2026-10-09T11:28:17.643Z"
+    },
+    {
+      "id": 112,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "209.248.0.98",
+      "detail": "密码错误",
+      "ts": "2026-10-09T11:28:06.926Z"
+    },
+    {
+      "id": 111,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "209.248.0.98",
+      "detail": "密码错误",
+      "ts": "2026-10-09T11:22:33.872Z"
+    },
+    {
+      "id": 110,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "209.248.0.98",
+      "detail": "密码错误",
+      "ts": "2026-10-09T11:22:33.481Z"
+    },
+    {
+      "id": 109,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "209.248.0.98",
+      "detail": "密码错误",
+      "ts": "2026-10-09T11:22:30.669Z"
+    },
+    {
+      "id": 108,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "209.248.0.98",
+      "detail": "密码错误",
+      "ts": "2026-10-09T11:22:18.368Z"
+    },
+    {
+      "id": 107,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-09T10:20:35.256Z"
+    },
+    {
+      "id": 106,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-09T09:35:02.748Z"
+    },
+    {
+      "id": 105,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-09T09:28:57.305Z"
+    },
+    {
+      "id": 104,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T09:28:23.829Z"
+    },
+    {
+      "id": 103,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T09:27:59.845Z"
+    },
+    {
+      "id": 102,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T09:27:59.524Z"
+    },
+    {
+      "id": 101,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T09:27:25.112Z"
+    },
+    {
+      "id": 100,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T09:27:24.776Z"
+    },
+    {
+      "id": 99,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T09:27:24.461Z"
+    },
+    {
+      "id": 98,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T09:27:24.121Z"
+    },
+    {
+      "id": 97,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T09:27:23.807Z"
+    },
+    {
+      "id": 96,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T09:27:23.469Z"
+    },
+    {
+      "id": 95,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T09:27:23.153Z"
+    },
+    {
+      "id": 94,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T09:27:22.813Z"
+    },
+    {
+      "id": 93,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T09:27:22.476Z"
+    },
+    {
+      "id": 92,
+      "action": "创建代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "代理: 11111111111 自动链接: 12a27bb3",
+      "ts": "2026-10-09T09:17:01.801Z"
+    },
+    {
+      "id": 91,
+      "action": "删除代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "ID:7",
+      "ts": "2026-10-09T09:16:44.596Z"
+    },
+    {
+      "id": 90,
+      "action": "删除链接",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "ID:9",
+      "ts": "2026-10-09T09:16:39.304Z"
+    },
+    {
+      "id": 89,
+      "action": "创建代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "代理: 22222222 自动链接: 692be380",
+      "ts": "2026-10-09T09:16:33.222Z"
+    },
+    {
+      "id": 88,
+      "action": "删除代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "ID:6",
+      "ts": "2026-10-09T09:16:29.334Z"
+    },
+    {
+      "id": 87,
+      "action": "删除链接",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "ID:8",
+      "ts": "2026-10-09T09:16:24.582Z"
+    },
+    {
+      "id": 86,
+      "action": "创建代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "代理: dddddddddd 自动链接: efb5e658",
+      "ts": "2026-10-09T09:05:57.069Z"
+    },
+    {
+      "id": 85,
+      "action": "删除代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "ID:5",
+      "ts": "2026-10-09T09:05:51.502Z"
+    },
+    {
+      "id": 84,
+      "action": "删除链接",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "ID:7",
+      "ts": "2026-10-09T09:05:46.102Z"
+    },
+    {
+      "id": 83,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-09T09:05:28.360Z"
+    },
+    {
+      "id": 82,
+      "action": "创建代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "代理: 333333333 自动链接: cbaea3e9",
+      "ts": "2026-10-09T09:04:47.892Z"
+    },
+    {
+      "id": 81,
+      "action": "删除代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "ID:4",
+      "ts": "2026-10-09T09:04:43.300Z"
+    },
+    {
+      "id": 80,
+      "action": "删除链接",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.55.27",
+      "detail": "ID:6",
+      "ts": "2026-10-09T09:04:38.283Z"
+    },
+    {
+      "id": 79,
+      "action": "创建代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "代理: 22222222222 自动链接: c0813b19",
+      "ts": "2026-10-09T08:59:29.946Z"
+    },
+    {
+      "id": 78,
+      "action": "删除代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "ID:3",
+      "ts": "2026-10-09T08:59:24.641Z"
+    },
+    {
+      "id": 77,
+      "action": "删除代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "ID:2",
+      "ts": "2026-10-09T08:59:22.393Z"
+    },
+    {
+      "id": 76,
+      "action": "删除链接",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "ID:5",
+      "ts": "2026-10-09T08:59:18.682Z"
+    },
+    {
+      "id": 75,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-09T08:53:01.773Z"
+    },
+    {
+      "id": 74,
+      "action": "创建代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "代理: 1111111111 自动链接: 1f782db4",
+      "ts": "2026-10-09T08:37:13.502Z"
+    },
+    {
+      "id": 73,
+      "action": "删除链接",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "ID:4",
+      "ts": "2026-10-09T08:27:52.457Z"
+    },
+    {
+      "id": 72,
+      "action": "创建链接",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "code:5abe7f72 代理ID:2",
+      "ts": "2026-10-09T08:27:43.578Z"
+    },
+    {
+      "id": 71,
+      "action": "删除链接",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "ID:3",
+      "ts": "2026-10-09T08:27:37.530Z"
+    },
+    {
+      "id": 70,
+      "action": "创建链接",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "code:7aa4776e 代理ID:2",
+      "ts": "2026-10-09T08:27:29.032Z"
+    },
+    {
+      "id": 69,
+      "action": "删除链接",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "ID:2",
+      "ts": "2026-10-09T08:01:28.551Z"
+    },
+    {
+      "id": 68,
+      "action": "创建代理",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "代理: aawwwww1 自动链接: d37f8a3f",
+      "ts": "2026-10-09T07:56:03.200Z"
+    },
+    {
+      "id": 67,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-09T07:54:29.508Z"
+    },
+    {
+      "id": 66,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "103.199.40.69",
+      "detail": "密码错误",
+      "ts": "2026-10-09T07:54:20.214Z"
+    },
+    {
+      "id": 65,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "31.94.4.216",
+      "detail": "密码错误",
+      "ts": "2026-10-09T04:25:31.014Z"
+    },
+    {
+      "id": 64,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "31.94.4.216",
+      "detail": "密码错误",
+      "ts": "2026-10-09T04:25:06.459Z"
+    },
+    {
+      "id": 63,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "31.94.4.216",
+      "detail": "密码错误",
+      "ts": "2026-10-09T04:24:59.380Z"
+    },
+    {
+      "id": 62,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "31.94.4.216",
+      "detail": "密码错误",
+      "ts": "2026-10-09T04:24:54.724Z"
+    },
+    {
+      "id": 61,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "31.94.4.216",
+      "detail": "密码错误",
+      "ts": "2026-10-09T04:24:51.662Z"
+    },
+    {
+      "id": 60,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "31.94.4.216",
+      "detail": "密码错误",
+      "ts": "2026-10-09T04:24:48.328Z"
+    },
+    {
+      "id": 59,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admin",
+      "ip": "31.94.4.216",
+      "detail": "密码错误",
+      "ts": "2026-10-09T04:24:44.744Z"
+    },
+    {
+      "id": 58,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "151.243.25.196",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T21:29:36.988Z"
+    },
+    {
+      "id": 57,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "?",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-08T21:19:11.558Z"
+    },
+    {
+      "id": 56,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "?",
+      "ip": "137.175.67.151",
+      "detail": "密码错误",
+      "ts": "2026-10-08T20:44:36.107Z"
+    },
+    {
+      "id": 55,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "104.128.66.227",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T18:33:54.137Z"
+    },
+    {
+      "id": 54,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "38.60.133.137",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T18:07:31.390Z"
+    },
+    {
+      "id": 53,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "38.60.133.137",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T17:19:02.266Z"
+    },
+    {
+      "id": 52,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "127.0.0.1",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T16:27:25.977Z"
+    },
+    {
+      "id": 51,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "151.244.0.205",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T14:54:14.677Z"
+    },
+    {
+      "id": 50,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "admun",
+      "ip": "151.244.0.205",
+      "detail": "密码错误",
+      "ts": "2026-10-08T14:53:27.330Z"
+    },
+    {
+      "id": 49,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "209.248.0.98",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T14:49:45.438Z"
+    },
+    {
+      "id": 48,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "209.248.0.98",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T13:52:00.517Z"
+    },
+    {
+      "id": 47,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "111.58.162.148",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T13:36:55.484Z"
+    },
+    {
+      "id": 46,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T13:30:00.751Z"
+    },
+    {
+      "id": 45,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "127.0.0.1",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T13:28:44.083Z"
+    },
+    {
+      "id": 44,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "127.0.0.1",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T13:28:00.219Z"
+    },
+    {
+      "id": 43,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "127.0.0.1",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T12:45:34.785Z"
+    },
+    {
+      "id": 42,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "127.0.0.1",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T12:00:00.643Z"
+    },
+    {
+      "id": 41,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "127.0.0.1",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T11:58:22.708Z"
+    },
+    {
+      "id": 40,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "111.58.162.148",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-08T04:11:13.220Z"
+    },
+    {
+      "id": 39,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "38.60.133.137",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-07T23:54:24.065Z"
+    },
+    {
+      "id": 38,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "45555",
+      "ip": "38.60.133.137",
+      "detail": "密码错误",
+      "ts": "2026-10-07T23:53:53.413Z"
+    },
+    {
+      "id": 37,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "caishenge",
+      "ip": "38.60.133.137",
+      "detail": "密码错误",
+      "ts": "2026-10-07T23:52:27.568Z"
+    },
+    {
+      "id": 36,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "caishenge",
+      "ip": "38.60.133.137",
+      "detail": "密码错误",
+      "ts": "2026-10-07T23:52:10.762Z"
+    },
+    {
+      "id": 35,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-07T23:25:38.578Z"
+    },
+    {
+      "id": 34,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "127.0.0.1",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-07T23:20:15.593Z"
+    },
+    {
+      "id": 33,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-07T23:14:40.272Z"
+    },
+    {
+      "id": 32,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-07T23:13:35.588Z"
+    },
+    {
+      "id": 31,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "38.60.133.137",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-07T23:00:46.127Z"
+    },
+    {
+      "id": 30,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "137.175.67.151",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-07T22:40:22.505Z"
+    },
+    {
+      "id": 29,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:57:30.917Z"
+    },
+    {
+      "id": 28,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:57:30.623Z"
+    },
+    {
+      "id": 27,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:57:30.345Z"
+    },
+    {
+      "id": 26,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "nonexistent_user_xyz123",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:57:28.316Z"
+    },
+    {
+      "id": 25,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:57:19.456Z"
+    },
+    {
+      "id": 24,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:57:19.177Z"
+    },
+    {
+      "id": 23,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:57:18.904Z"
+    },
+    {
+      "id": 22,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "nonexistent_user_xyz123",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:57:16.936Z"
+    },
+    {
+      "id": 21,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:57:04.918Z"
+    },
+    {
+      "id": 20,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:57:04.625Z"
+    },
+    {
+      "id": 19,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:57:04.319Z"
+    },
+    {
+      "id": 18,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "nonexistent_user_xyz123",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:57:02.307Z"
+    },
+    {
+      "id": 17,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:56:41.495Z"
+    },
+    {
+      "id": 16,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:56:41.215Z"
+    },
+    {
+      "id": 15,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:56:40.943Z"
+    },
+    {
+      "id": 14,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "nonexistent_user_xyz123",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:56:38.958Z"
+    },
+    {
+      "id": 13,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:56:21.476Z"
+    },
+    {
+      "id": 12,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:56:21.204Z"
+    },
+    {
+      "id": 11,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:56:20.917Z"
+    },
+    {
+      "id": 10,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "nonexistent_user_xyz123",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:56:18.936Z"
+    },
+    {
+      "id": 9,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:56:06.323Z"
+    },
+    {
+      "id": 8,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:56:06.037Z"
+    },
+    {
+      "id": 7,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "test_burst",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:56:05.758Z"
+    },
+    {
+      "id": 6,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "nonexistent_user_xyz123",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:56:03.717Z"
+    },
+    {
+      "id": 5,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "nonexistent_user_xyz123",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:55:38.239Z"
+    },
+    {
+      "id": 4,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "nonexistent_user_xyz123",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:55:25.116Z"
+    },
+    {
+      "id": 3,
+      "action": "登录失败",
+      "user_id": null,
+      "username": "nonexistent_user_xyz123",
+      "ip": "103.199.40.125",
+      "detail": "密码错误",
+      "ts": "2026-10-07T21:55:08.777Z"
+    },
+    {
+      "id": 2,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "103.199.40.125",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-07T21:35:30.023Z"
+    },
+    {
+      "id": 1,
+      "action": "登录",
+      "user_id": 1,
+      "username": "admin",
+      "ip": "127.0.0.1",
+      "detail": "角色: super_admin",
+      "ts": "2026-10-07T21:34:23.906Z"
+    }
+  ],
+  "sessions": {}
+}

@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791548651191,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "dylib load address: 0xcfb9c0000"
+    }
+  ]
+}

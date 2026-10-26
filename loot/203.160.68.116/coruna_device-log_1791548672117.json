@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791548671671,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[collect] starting cmd/poll with deviceId=0970dc5b9c1bfcfa"
+    }
+  ]
+}

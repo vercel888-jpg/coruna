@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791548657621,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Fed 2192 bytes for 7a7d99099b035b2c6512b6ebeeea6df1ede70fbb"
+    }
+  ]
+}

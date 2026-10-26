@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791550577696,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[STAGE3] Sandbox escape result: 0"
+    }
+  ]
+}

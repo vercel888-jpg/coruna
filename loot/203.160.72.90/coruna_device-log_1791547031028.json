@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547030654,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Success. Reload will skip chain to avoid second-run crash."
+    }
+  ]
+}

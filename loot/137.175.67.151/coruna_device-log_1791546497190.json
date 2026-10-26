@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 123,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "test"
+    }
+  ]
+}

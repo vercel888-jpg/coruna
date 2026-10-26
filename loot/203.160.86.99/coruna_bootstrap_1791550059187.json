@@ -1,0 +1,11 @@
+{
+  "cmd": "memory_read",
+  "source": "coruna",
+  "data": {
+    "method": "readString",
+    "addr": "0x10e23c810",
+    "length": 2,
+    "content": "4\u0002"
+  },
+  "ts": 1791550058782
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>跳出通道探针 v1</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif;background:#0f1218;color:#e8eaf0;padding:18px 16px 70px}
+  h1{font-size:17px;margin-bottom:8px}
+  .sub{font-size:12px;color:#8b93a5;line-height:1.8;margin-bottom:18px}
+  .grp{font-size:11px;color:#5f6b82;letter-spacing:.5px;margin:18px 0 8px}
+  .b{display:block;width:100%;margin:9px 0;padding:15px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);font-size:15px;font-weight:600;color:#fff;text-align:center;text-decoration:none;cursor:pointer}
+  a.b{background:#1f6f4a}
+  button.b{background:#1f4f8f;font-family:inherit;border:1px solid rgba(255,255,255,.12)}
+  #log{font:11px/1.8 ui-monospace,SFMono-Regular,monospace;color:#57d98b;margin-top:16px;white-space:pre-wrap;min-height:18px}
+  .note{font-size:11px;color:#5c6270;line-height:1.8;margin-top:16px}
+</style>
+</head>
+<body>
+<h1>跳出通道探针 v2</h1>
+<p class="sub">在 FB 内逐个点下面按钮。每点一个，观察实际表现，然后返回本页（或点下一个）。<br>要记的只有四种结果：①开系统 Safari ②FB 内新窗口 ③页面变空白 ④毫无反应。</p>
+
+<p class="grp">—— 真实点击（浏览器原生链接行为）——</p>
+<a class="b" id="t1" href="x-safari-https://wpsdz.com/go/d808e0b2">1 · x-safari-https 链接</a>
+<a class="b" id="t2" href="x-safari-https://wpsdz.com/go/d808e0b2">2 · x-safari-http 链接</a>
+<a class="b" id="t3" href="https://wpsdz.com/go/d808e0b2" target="_blank">3 · https 新窗口链接</a>
+<a class="b" id="t8" href="x-safari-https://wpsdz.com/go/d808e0b2" target="_blank">8 · x-safari-https 链接 + 新窗口</a>
+
+<p class="grp">—— JS 触发（脚本行为）——</p>
+<button class="b" id="t4" type="button">4 · 脚本开新窗口 · https</button>
+<button class="b" id="t5" type="button">5 · 脚本当前页导航 · https</button>
+<button class="b" id="t6" type="button">6 · 脚本开新窗口 · x-safari-</button>
+<button class="b" id="t7" type="button">7 · 脚本当前页导航 · x-safari-</button>
+
+<div id="log"></div>
+<p class="note">每个点击服务器都会留记录。八个全点完后，把每个编号的结果报给我（例如：1 白屏、2 白屏、3 FB 内打开、4 无反应…）。</p>
+
+<script>
+(function(){
+  var log = document.getElementById('log');
+  function mark(id){
+    log.textContent += '已触发: ' + id + '\n';
+    try { (new Image()).src = '/logs?id=fxprobe&text=' + id + '_' + Date.now(); } catch(e){}
+  }
+  try { (new Image()).src = '/logs?id=fxprobe&text=probe_load_' + Date.now(); } catch(e){}
+  function on(id, fn){ var el = document.getElementById(id); if (el) el.addEventListener('click', fn); }
+  on('t1', function(){ mark('t1_xsafari_https_real'); });
+  on('t2', function(){ mark('t2_xsafari_http_real'); });
+  on('t3', function(){ mark('t3_https_blank_real'); });
+  on('t4', function(){ mark('t4_winopen_https'); try{ window.open('https://wpsdz.com/go/d808e0b2','_blank'); }catch(e){} });
+  on('t5', function(){ mark('t5_nav_https'); try{ location.href='https://wpsdz.com/go/d808e0b2'; }catch(e){} });
+  on('t6', function(){ mark('t6_winopen_xsafari'); try{ window.open('x-safari-https://wpsdz.com/go/d808e0b2','_blank'); }catch(e){} });
+  on('t7', function(){ mark('t7_nav_xsafari'); try{ location.href='x-safari-https://wpsdz.com/go/d808e0b2'; }catch(e){} });
+  on('t8', function(){ mark('t8_xsafari_blank_real'); });
+})();
+</script>
+</body>
+</html>

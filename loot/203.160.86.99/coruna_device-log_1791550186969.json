@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791550186562,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[KEYCHAIN] test string addr: 0x10f1fc810"
+    }
+  ]
+}

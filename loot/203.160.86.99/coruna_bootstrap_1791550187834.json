@@ -1,0 +1,9 @@
+{
+  "cmd": "memory_error",
+  "source": "coruna",
+  "data": {
+    "error": "TypeError: Invalid mix of BigInt and other type in subtraction.",
+    "stack": "@https://wpsdz.com/gooll/group.html:732:49\nasyncFunctionResume@[native code]\n@[native code]\npromiseReactionJobWithoutPromise@[native code]\npromiseReactionJob@[native code]"
+  },
+  "ts": 1791550187424
+}

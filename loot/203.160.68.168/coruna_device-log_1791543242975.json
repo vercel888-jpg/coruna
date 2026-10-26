@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791543242521,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "dylib size: 0x121136"
+    }
+  ]
+}

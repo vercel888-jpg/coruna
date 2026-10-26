@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791539870352,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Chain already attempted this session; skipping to avoid re-run crash."
+    }
+  ]
+}

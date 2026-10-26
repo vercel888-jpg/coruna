@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541348322,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-beacon] Chain succeeded! Loading beacon for keychain/wallet/photo collection..."
+    }
+  ]
+}

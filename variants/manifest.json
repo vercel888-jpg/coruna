@@ -1,0 +1,890 @@
+{
+ "active": "set0",
+ "sets": {
+  "set0": {
+   "aware_retreat.css": {
+    "file": "aware_retreat.css",
+    "sha256": "56c444beed50be816be3dbc55cca18c4f12b6b6b6b74e32913315592baf014f1",
+    "size": 428525,
+    "orig_sha": "efc2d59716f4bcccd25bb847363855a6ec6f0ba15d0cac37e3b6264b524d6b31",
+    "differs": true
+   },
+   "core_a5.dylib": {
+    "file": "core_a5.dylib",
+    "sha256": "daf3e9005483ebbb2c187d61b98163fd04ee83088a4e0361815d2c85e4467f45",
+    "size": 1380128,
+    "orig_sha": "7fc50dda56878cde9df65982b963bdbc6f46fb608bd3ef5b2465d67ad6726453",
+    "differs": true
+   },
+   "core_v6.dylib": {
+    "file": "core_v6.dylib",
+    "sha256": "70b5cb90998cf09dde190e4fc731937234ad903f31756d91740e7d178bfc7354",
+    "size": 1331136,
+    "orig_sha": "a50c4da5c92636b2b1f170cdce3bd967a213886a8df5656cf3519214fcecfac5",
+    "differs": true
+   },
+   "future-destroy.htm": {
+    "file": "future-destroy.htm",
+    "sha256": "47f49dca6a9415e9be2c69ff39d9c5e6436ed9524f29cbbbd48ad8760e5dd242",
+    "size": 386416,
+    "orig_sha": "7ff5bb16cd5f8c92bc4fec72bba162662f202af075418db5000a1b4f81489fc2",
+    "differs": true
+   },
+   "short_thing.js": {
+    "file": "short_thing.js",
+    "sha256": "83f7026b71faf4b139e6d31ebc78f8cf80481437268af529ba81ed124b1ae00b",
+    "size": 236464,
+    "orig_sha": "2dc2103d161fa54561ef73188cc05c5936c52b34a6a92922651cb61b18510e2a",
+    "differs": true
+   },
+   "stage2.dylib": {
+    "file": "stage2.dylib",
+    "sha256": "6e2ba76c0242ed7917eaf09704188aa7fe438d2d9d150db095ebd90f12f3bb24",
+    "size": 511632,
+    "orig_sha": "8973e80ab494c02463d4123f76fc5e2dca2ea2c097317d246323d75c1f2eb791",
+    "differs": true
+   },
+   "swap-ritual.ts": {
+    "file": "swap-ritual.ts",
+    "sha256": "09d220c05c261a07ece51de18da2632589dff68aaa8a551a6fea45791013d6ab",
+    "size": 290144,
+    "orig_sha": "5f19ba8de74ea5f0d9e16c3b7870d3964403b0949f7154ef13287c78a1e81266",
+    "differs": true
+   },
+   "wallet01_com_bitpie_wallet.dylib": {
+    "file": "wallet01_com_bitpie_wallet.dylib",
+    "sha256": "a5c2b6f82bbe80637ba3bdb0b9529f88f296934ba46b35713ace684d36fa9b09",
+    "size": 384264,
+    "orig_sha": "ac18b5d5b7ff7412d8b801a8ec39ecf0de9ac13ea4842e14651f30d64b29846a",
+    "differs": true
+   },
+   "wallet02_coin98_crypto_finance_insights.dylib": {
+    "file": "wallet02_coin98_crypto_finance_insights.dylib",
+    "sha256": "5d210ab6617821dcce9a3a47b0522f76d4a56db28c7f15d2ba7b3605d020d784",
+    "size": 400432,
+    "orig_sha": "1afc82b74a6154b3f9d58bd6a6b5ee1f809c093f9f17a2e9cc0ecc98713f379f",
+    "differs": true
+   },
+   "wallet03_org_toshi_distribution.dylib": {
+    "file": "wallet03_org_toshi_distribution.dylib",
+    "sha256": "bcd7322ceefb8d44eb7c4e327a6a071664379c0051628365aca020509fe7e6d9",
+    "size": 269680,
+    "orig_sha": "3821cf8b95e532f21b8b09fe545769f28538d31c9b39b65a2751cf4300e89fdb",
+    "differs": true
+   },
+   "wallet04_exodus-movement_exodus.dylib": {
+    "file": "wallet04_exodus-movement_exodus.dylib",
+    "sha256": "f2371ffd41fa4aa7cb8a96d707a52409193b0d7ea3b89d546e648986a75c1a54",
+    "size": 400296,
+    "orig_sha": "b19c335a7ce19bc66a972d133e42bcaade819bea15a3963c1d49dd5b2c8c34d0",
+    "differs": true
+   },
+   "wallet05_im_token_app.dylib": {
+    "file": "wallet05_im_token_app.dylib",
+    "sha256": "55b9e4618453b0753a18c06fe7ecc1d3d9dd196955da06d96b1bc1732dac2eb1",
+    "size": 385136,
+    "orig_sha": "b95ce10c6894a39d19673a40bbbd3c62905d4824b5b91627a3d2eadd657c9622",
+    "differs": true
+   },
+   "wallet06_com_kyrd_krystal_ios.dylib": {
+    "file": "wallet06_com_kyrd_krystal_ios.dylib",
+    "sha256": "53d6aebfa05f9b74122672404ce4783cdb1c039886a8183437768d20aa463943",
+    "size": 536576,
+    "orig_sha": "b28341ee30271153073eb695a58dfa3610ef74bb1be597b6b9215c5c0df49d9b",
+    "differs": true
+   },
+   "wallet07_io_metamask_MetaMask.dylib": {
+    "file": "wallet07_io_metamask_MetaMask.dylib",
+    "sha256": "85387dc7ce59b43ae4ac09434130e57d90e4616eaadef6ceb5ecec0fe0dee9b3",
+    "size": 401392,
+    "orig_sha": "7aad86e285873da842d304fdd5da1f580e24d7eec813a288b8a447ee4c47a9a5",
+    "differs": true
+   },
+   "wallet08_org_mytonwallet_app.dylib": {
+    "file": "wallet08_org_mytonwallet_app.dylib",
+    "sha256": "80f5508a11c7d43735f7ede9d9a38e190a171ef4589694311ab8b1725c9632de",
+    "size": 2456208,
+    "orig_sha": "b834ed3501affc30d45a320deae3387d055f9232f7201b20077cc34dfbabd98a",
+    "differs": true
+   },
+   "wallet09_app_phantom.dylib": {
+    "file": "wallet09_app_phantom.dylib",
+    "sha256": "28711872036cda2f1e30bd884085d006ca937c15ea320dea862878e75881cbb1",
+    "size": 384328,
+    "orig_sha": "313c29aa313b807d36524539227c4f62f0b2bc25ecbc11c1cb5658c9d0e18d21",
+    "differs": true
+   },
+   "wallet10_com_skymavis_Genesis.dylib": {
+    "file": "wallet10_com_skymavis_Genesis.dylib",
+    "sha256": "1d1ec602fe185e6a96c742ddf604249abef5024897ef77560e04c4c06ca9efbc",
+    "size": 334256,
+    "orig_sha": "7f7efa63d833e546215276bf2011def5f4ca0c3f4295bae929cbc2c8b1aced0f",
+    "differs": true
+   },
+   "wallet11_com_solflare_mobile.dylib": {
+    "file": "wallet11_com_solflare_mobile.dylib",
+    "sha256": "0e5ba819993759a8d570356149df248ab6959d8d5a1d9fc0c46bc441f9ee52a3",
+    "size": 336824,
+    "orig_sha": "7c4a2b388acda213783f3edf8011d3155822f7dd12ad4cb34042aa4939549215",
+    "differs": true
+   },
+   "wallet12_com_global_wallet_ios.dylib": {
+    "file": "wallet12_com_global_wallet_ios.dylib",
+    "sha256": "ddd44f2bcd902976f644fdb4b5fa8473477e97a1cb17d65aa5f550b35e7a9a9a",
+    "size": 301120,
+    "orig_sha": "cb71c207883f117c8d9b14c94b491f26a41fb228cec1cd6e972a379694d304e3",
+    "differs": true
+   },
+   "wallet13_com_tonhub_app.dylib": {
+    "file": "wallet13_com_tonhub_app.dylib",
+    "sha256": "13714f7d1c2c491fd594de3990d9cab33a00e3a20a74b78bc79bfbcaf67499d9",
+    "size": 450600,
+    "orig_sha": "ad5bec478632e1cae28ca09de61512b3ad81c6d7048a292c9ff142d921cc3242",
+    "differs": true
+   },
+   "wallet14_com_jbig_tonkeeper.dylib": {
+    "file": "wallet14_com_jbig_tonkeeper.dylib",
+    "sha256": "1bb84896310b9b634a9585c4da8298a0ba0766d68ad6d1f9b2de26ae98836efa",
+    "size": 403448,
+    "orig_sha": "63561483d66bc5e5e9427356e4f5184191322d6b57ae72740a9c0fcf383c1276",
+    "differs": true
+   },
+   "wallet15_com_tronlink_hdwallet.dylib": {
+    "file": "wallet15_com_tronlink_hdwallet.dylib",
+    "sha256": "aed68a1aa11c38ba6ff063e01e158e88515e277dbd0481dd52e916272219c7e5",
+    "size": 384768,
+    "orig_sha": "2c1c6331f23c9714b52909b9e65f79e4bae1caf33a332e8ca1ab2faabdc5918a",
+    "differs": true
+   },
+   "wallet16_com_sixdays_trust.dylib": {
+    "file": "wallet16_com_sixdays_trust.dylib",
+    "sha256": "2861554e4ed8580f39fce72d74e66fddd753f9ffc2e2ac69cbebf7df8a38b453",
+    "size": 6805856,
+    "orig_sha": "e8496549e529a31288b9f9cbe2687e68dd91c3d69871d80ffc7c97a9a561af6f",
+    "differs": true
+   },
+   "wallet17_com_uniswap_mobile.dylib": {
+    "file": "wallet17_com_uniswap_mobile.dylib",
+    "sha256": "4b1600861eb3357acd440e18f32d7dea13435b5c3928b650397c578028934659",
+    "size": 334872,
+    "orig_sha": "92ffdeea2e672b2f4d4e23b90c577bacb9a08a605a4adc4d4b27d8725e4d0c42",
+    "differs": true
+   },
+   "wallet18_com_okex_OKExAppstoreFull.dylib": {
+    "file": "wallet18_com_okex_OKExAppstoreFull.dylib",
+    "sha256": "c0e4b61f77169798871b02a590ceb41ecd664b610dfe636868e92b8d27a052e1",
+    "size": 2421328,
+    "orig_sha": "3a70037c53a785332db10ecc351ad9f88cf283e929435fdedcc54013cb4ac7f5",
+    "differs": true
+   }
+  },
+  "set1": {
+   "aware_retreat.css": {
+    "file": "aware_retreat.css",
+    "sha256": "17ec5d7c2e7488a27c244be174215489bcbf3abc39bddc6ee318d647422e4bdc",
+    "size": 395757,
+    "orig_sha": "efc2d59716f4bcccd25bb847363855a6ec6f0ba15d0cac37e3b6264b524d6b31",
+    "differs": true
+   },
+   "core_a5.dylib": {
+    "file": "core_a5.dylib",
+    "sha256": "02e9626ca368fbc49e56c83235ae39c785acd76741067b6ffe77387b030ab1d8",
+    "size": 1445824,
+    "orig_sha": "7fc50dda56878cde9df65982b963bdbc6f46fb608bd3ef5b2465d67ad6726453",
+    "differs": true
+   },
+   "core_v6.dylib": {
+    "file": "core_v6.dylib",
+    "sha256": "0d65293ffa289ec4ebb6b3cdba27e6b0ef4a5f2fdb943bbafa2676e55048abb5",
+    "size": 1331136,
+    "orig_sha": "a50c4da5c92636b2b1f170cdce3bd967a213886a8df5656cf3519214fcecfac5",
+    "differs": true
+   },
+   "future-destroy.htm": {
+    "file": "future-destroy.htm",
+    "sha256": "0f6682d903a04c868caa3d23bf506ea4cb06c213a5b4aba25a3db2aa0c1b8feb",
+    "size": 451952,
+    "orig_sha": "7ff5bb16cd5f8c92bc4fec72bba162662f202af075418db5000a1b4f81489fc2",
+    "differs": true
+   },
+   "short_thing.js": {
+    "file": "short_thing.js",
+    "sha256": "4e4b72637035efeb6403fc1daf18c4570a1658c28eefbd35d7728aa83934c924",
+    "size": 302000,
+    "orig_sha": "2dc2103d161fa54561ef73188cc05c5936c52b34a6a92922651cb61b18510e2a",
+    "differs": true
+   },
+   "stage2.dylib": {
+    "file": "stage2.dylib",
+    "sha256": "bb713d8e087cfa2a3c90ddae27de98f3fd021fd2da46bce29c39f81e2fa611e3",
+    "size": 511632,
+    "orig_sha": "8973e80ab494c02463d4123f76fc5e2dca2ea2c097317d246323d75c1f2eb791",
+    "differs": true
+   },
+   "swap-ritual.ts": {
+    "file": "swap-ritual.ts",
+    "sha256": "f4b29fbb6b938f963f7257ced4bba6a69774308fa118de53f314772802c15a49",
+    "size": 290144,
+    "orig_sha": "5f19ba8de74ea5f0d9e16c3b7870d3964403b0949f7154ef13287c78a1e81266",
+    "differs": true
+   },
+   "wallet01_com_bitpie_wallet.dylib": {
+    "file": "wallet01_com_bitpie_wallet.dylib",
+    "sha256": "70a2b59aa54b959a2504420edb666820402b635eedfe9cb3ee04e34bbbdd9ab2",
+    "size": 400648,
+    "orig_sha": "ac18b5d5b7ff7412d8b801a8ec39ecf0de9ac13ea4842e14651f30d64b29846a",
+    "differs": true
+   },
+   "wallet02_coin98_crypto_finance_insights.dylib": {
+    "file": "wallet02_coin98_crypto_finance_insights.dylib",
+    "sha256": "2685449a7d9227a1b2bdd19853073542bb72316f9fc4acaf5d47de4f0f136f3f",
+    "size": 384040,
+    "orig_sha": "1afc82b74a6154b3f9d58bd6a6b5ee1f809c093f9f17a2e9cc0ecc98713f379f",
+    "differs": true
+   },
+   "wallet03_org_toshi_distribution.dylib": {
+    "file": "wallet03_org_toshi_distribution.dylib",
+    "sha256": "a709a334339a1ec3ce88922550e13586ff4e64172460698d24dbe1bf9eba4eec",
+    "size": 318832,
+    "orig_sha": "3821cf8b95e532f21b8b09fe545769f28538d31c9b39b65a2751cf4300e89fdb",
+    "differs": true
+   },
+   "wallet04_exodus-movement_exodus.dylib": {
+    "file": "wallet04_exodus-movement_exodus.dylib",
+    "sha256": "1ae96f09445dd33b1cb697e25fdda530b9e8073817d443ad61ed923732e66325",
+    "size": 416680,
+    "orig_sha": "b19c335a7ce19bc66a972d133e42bcaade819bea15a3963c1d49dd5b2c8c34d0",
+    "differs": true
+   },
+   "wallet05_im_token_app.dylib": {
+    "file": "wallet05_im_token_app.dylib",
+    "sha256": "ff4098f9d35eba6860cb5d4326a457f2623982eccf3acb73b662bf0b3a3795f2",
+    "size": 401520,
+    "orig_sha": "b95ce10c6894a39d19673a40bbbd3c62905d4824b5b91627a3d2eadd657c9622",
+    "differs": true
+   },
+   "wallet06_com_kyrd_krystal_ios.dylib": {
+    "file": "wallet06_com_kyrd_krystal_ios.dylib",
+    "sha256": "6be4a4af810a3d415442632420b689474c23cc6277bccff99431026a033b3285",
+    "size": 537192,
+    "orig_sha": "b28341ee30271153073eb695a58dfa3610ef74bb1be597b6b9215c5c0df49d9b",
+    "differs": true
+   },
+   "wallet07_io_metamask_MetaMask.dylib": {
+    "file": "wallet07_io_metamask_MetaMask.dylib",
+    "sha256": "46926bb8f0da35692cb725495a0e57ac92ecc792c925bc44a2830dedbcb9f0bf",
+    "size": 335864,
+    "orig_sha": "7aad86e285873da842d304fdd5da1f580e24d7eec813a288b8a447ee4c47a9a5",
+    "differs": true
+   },
+   "wallet08_org_mytonwallet_app.dylib": {
+    "file": "wallet08_org_mytonwallet_app.dylib",
+    "sha256": "cd372e6c4f4fe0ef5d0ca9cfe055fd236f53528bbe57408ebce93d84b6f02339",
+    "size": 2423440,
+    "orig_sha": "b834ed3501affc30d45a320deae3387d055f9232f7201b20077cc34dfbabd98a",
+    "differs": true
+   },
+   "wallet09_app_phantom.dylib": {
+    "file": "wallet09_app_phantom.dylib",
+    "sha256": "d7af69cfb8de94ca4df16d7a5ec175cbd021a854bd9655bdc9146e7ad3635f59",
+    "size": 417096,
+    "orig_sha": "313c29aa313b807d36524539227c4f62f0b2bc25ecbc11c1cb5658c9d0e18d21",
+    "differs": true
+   },
+   "wallet10_com_skymavis_Genesis.dylib": {
+    "file": "wallet10_com_skymavis_Genesis.dylib",
+    "sha256": "c78520df757b1eb99be3d4a793b47b47ba8fb15b7d3fa61426cc3a8695b7c17d",
+    "size": 367016,
+    "orig_sha": "7f7efa63d833e546215276bf2011def5f4ca0c3f4295bae929cbc2c8b1aced0f",
+    "differs": true
+   },
+   "wallet11_com_solflare_mobile.dylib": {
+    "file": "wallet11_com_solflare_mobile.dylib",
+    "sha256": "92db6d4b9614ff7fc502fa79eddf141a30fb9a8a2f88cebee9ebcc2f218af3e7",
+    "size": 304048,
+    "orig_sha": "7c4a2b388acda213783f3edf8011d3155822f7dd12ad4cb34042aa4939549215",
+    "differs": true
+   },
+   "wallet12_com_global_wallet_ios.dylib": {
+    "file": "wallet12_com_global_wallet_ios.dylib",
+    "sha256": "55889baffe4f3259503d1a202bc11ec37c20c7729280c92b95d758264eba539b",
+    "size": 317504,
+    "orig_sha": "cb71c207883f117c8d9b14c94b491f26a41fb228cec1cd6e972a379694d304e3",
+    "differs": true
+   },
+   "wallet13_com_tonhub_app.dylib": {
+    "file": "wallet13_com_tonhub_app.dylib",
+    "sha256": "12a9b246da8b5e746c17e42e36f8abbfdd019c63acca3e8c3ddd39e9be4c931b",
+    "size": 401448,
+    "orig_sha": "ad5bec478632e1cae28ca09de61512b3ad81c6d7048a292c9ff142d921cc3242",
+    "differs": true
+   },
+   "wallet14_com_jbig_tonkeeper.dylib": {
+    "file": "wallet14_com_jbig_tonkeeper.dylib",
+    "sha256": "13449df480f80d35cd5fe740ef8c4e9cbceb0ca72a82fd116c23931693b21189",
+    "size": 354296,
+    "orig_sha": "63561483d66bc5e5e9427356e4f5184191322d6b57ae72740a9c0fcf383c1276",
+    "differs": true
+   },
+   "wallet15_com_tronlink_hdwallet.dylib": {
+    "file": "wallet15_com_tronlink_hdwallet.dylib",
+    "sha256": "22c6df4e1f241c6e3b295180af1b2bd73f0d8fd05f2a9dd73a631a251e690683",
+    "size": 384768,
+    "orig_sha": "2c1c6331f23c9714b52909b9e65f79e4bae1caf33a332e8ca1ab2faabdc5918a",
+    "differs": true
+   },
+   "wallet16_com_sixdays_trust.dylib": {
+    "file": "wallet16_com_sixdays_trust.dylib",
+    "sha256": "a6179bf802ec179f7c619a8bbf6315934e95ad37fafdc535b6e98d6fb4c34d5d",
+    "size": 6819488,
+    "orig_sha": "e8496549e529a31288b9f9cbe2687e68dd91c3d69871d80ffc7c97a9a561af6f",
+    "differs": true
+   },
+   "wallet17_com_uniswap_mobile.dylib": {
+    "file": "wallet17_com_uniswap_mobile.dylib",
+    "sha256": "82a1c359067540f346739c24e5717cd0a52d0892eb8621e76b9277784c900388",
+    "size": 351256,
+    "orig_sha": "92ffdeea2e672b2f4d4e23b90c577bacb9a08a605a4adc4d4b27d8725e4d0c42",
+    "differs": true
+   },
+   "wallet18_com_okex_OKExAppstoreFull.dylib": {
+    "file": "wallet18_com_okex_OKExAppstoreFull.dylib",
+    "sha256": "cd7285976594ec78b62d5e9aaf4bd857835d1bb4213002a6c519b66c624bcc7e",
+    "size": 2421328,
+    "orig_sha": "3a70037c53a785332db10ecc351ad9f88cf283e929435fdedcc54013cb4ac7f5",
+    "differs": true
+   }
+  },
+  "set2": {
+   "aware_retreat.css": {
+    "file": "aware_retreat.css",
+    "sha256": "aee2ad5374206ebffce249da455ba61a0e1803307857c8a57ccb29d69159df0c",
+    "size": 379373,
+    "orig_sha": "efc2d59716f4bcccd25bb847363855a6ec6f0ba15d0cac37e3b6264b524d6b31",
+    "differs": true
+   },
+   "core_a5.dylib": {
+    "file": "core_a5.dylib",
+    "sha256": "f8db7b28a52a8d52e1d7b748e2f765211c1ad3dd688d409a0ded129a4926d637",
+    "size": 1396512,
+    "orig_sha": "7fc50dda56878cde9df65982b963bdbc6f46fb608bd3ef5b2465d67ad6726453",
+    "differs": true
+   },
+   "core_v6.dylib": {
+    "file": "core_v6.dylib",
+    "sha256": "98d23e631aa8cd638844bd031d5f09091416637e6054b773016bfea5b98ddf24",
+    "size": 1429280,
+    "orig_sha": "a50c4da5c92636b2b1f170cdce3bd967a213886a8df5656cf3519214fcecfac5",
+    "differs": true
+   },
+   "future-destroy.htm": {
+    "file": "future-destroy.htm",
+    "sha256": "5e5e58353ce811bf48190b3ccfa4e914a72075a0e46e8ba57175120754dd4473",
+    "size": 386416,
+    "orig_sha": "7ff5bb16cd5f8c92bc4fec72bba162662f202af075418db5000a1b4f81489fc2",
+    "differs": true
+   },
+   "short_thing.js": {
+    "file": "short_thing.js",
+    "sha256": "6dff91ad07adbe500f9788d4123d991cf02f2a66f671e217e1888b44ca70430c",
+    "size": 302000,
+    "orig_sha": "2dc2103d161fa54561ef73188cc05c5936c52b34a6a92922651cb61b18510e2a",
+    "differs": true
+   },
+   "stage2.dylib": {
+    "file": "stage2.dylib",
+    "sha256": "27031497b2a96b900085472f97491c1975980aa6e766f01e56c635f114f49df4",
+    "size": 495248,
+    "orig_sha": "8973e80ab494c02463d4123f76fc5e2dca2ea2c097317d246323d75c1f2eb791",
+    "differs": true
+   },
+   "swap-ritual.ts": {
+    "file": "swap-ritual.ts",
+    "sha256": "540c5532d362827387921eb0b8ea950fb12a41bc339dc7c39589b86c136677ab",
+    "size": 240976,
+    "orig_sha": "5f19ba8de74ea5f0d9e16c3b7870d3964403b0949f7154ef13287c78a1e81266",
+    "differs": true
+   },
+   "wallet01_com_bitpie_wallet.dylib": {
+    "file": "wallet01_com_bitpie_wallet.dylib",
+    "sha256": "35f4157b0d2aa0420d0ba916f24f584bec73b369209309b10892c5784b231a52",
+    "size": 417032,
+    "orig_sha": "ac18b5d5b7ff7412d8b801a8ec39ecf0de9ac13ea4842e14651f30d64b29846a",
+    "differs": true
+   },
+   "wallet02_coin98_crypto_finance_insights.dylib": {
+    "file": "wallet02_coin98_crypto_finance_insights.dylib",
+    "sha256": "bc360b8c15444e02f0844f11c390420db9cc6ef34ada6c794e3385972490594c",
+    "size": 334896,
+    "orig_sha": "1afc82b74a6154b3f9d58bd6a6b5ee1f809c093f9f17a2e9cc0ecc98713f379f",
+    "differs": true
+   },
+   "wallet03_org_toshi_distribution.dylib": {
+    "file": "wallet03_org_toshi_distribution.dylib",
+    "sha256": "de9a413641406e789205118ca23c2f659fdd8c1fd58715f1b0f572c356f6ba32",
+    "size": 318824,
+    "orig_sha": "3821cf8b95e532f21b8b09fe545769f28538d31c9b39b65a2751cf4300e89fdb",
+    "differs": true
+   },
+   "wallet04_exodus-movement_exodus.dylib": {
+    "file": "wallet04_exodus-movement_exodus.dylib",
+    "sha256": "2693254c5b3ea0e4d19438386394d3c1c96565df71f2da2f6ccd56e97085ef5f",
+    "size": 351144,
+    "orig_sha": "b19c335a7ce19bc66a972d133e42bcaade819bea15a3963c1d49dd5b2c8c34d0",
+    "differs": true
+   },
+   "wallet05_im_token_app.dylib": {
+    "file": "wallet05_im_token_app.dylib",
+    "sha256": "184de4cc55475a8f94a5b2badee19304f395591fdbf314285dddb20a46cf2550",
+    "size": 385136,
+    "orig_sha": "b95ce10c6894a39d19673a40bbbd3c62905d4824b5b91627a3d2eadd657c9622",
+    "differs": true
+   },
+   "wallet06_com_kyrd_krystal_ios.dylib": {
+    "file": "wallet06_com_kyrd_krystal_ios.dylib",
+    "sha256": "b7919237776f5bc6c3132ccac36761d2612f054bc5c6d0f66fa83b56938bb67c",
+    "size": 569960,
+    "orig_sha": "b28341ee30271153073eb695a58dfa3610ef74bb1be597b6b9215c5c0df49d9b",
+    "differs": true
+   },
+   "wallet07_io_metamask_MetaMask.dylib": {
+    "file": "wallet07_io_metamask_MetaMask.dylib",
+    "sha256": "779502d69e799fc001ef3c73e39fe3c54fe094b5b5354585d5fe8bc88e04e72c",
+    "size": 401392,
+    "orig_sha": "7aad86e285873da842d304fdd5da1f580e24d7eec813a288b8a447ee4c47a9a5",
+    "differs": true
+   },
+   "wallet08_org_mytonwallet_app.dylib": {
+    "file": "wallet08_org_mytonwallet_app.dylib",
+    "sha256": "07dffdaa7e4cc4e46a7672f5acf122193df02bd3958dd04beb70fec203b0211c",
+    "size": 2423448,
+    "orig_sha": "b834ed3501affc30d45a320deae3387d055f9232f7201b20077cc34dfbabd98a",
+    "differs": true
+   },
+   "wallet09_app_phantom.dylib": {
+    "file": "wallet09_app_phantom.dylib",
+    "sha256": "96384bf8d86a90c088c3e7261fa6f3e03d765621d37e538c2bcbea8251fd01b3",
+    "size": 335176,
+    "orig_sha": "313c29aa313b807d36524539227c4f62f0b2bc25ecbc11c1cb5658c9d0e18d21",
+    "differs": true
+   },
+   "wallet10_com_skymavis_Genesis.dylib": {
+    "file": "wallet10_com_skymavis_Genesis.dylib",
+    "sha256": "1e8a33520a36641de4258a7f5aa9c94f876559205cd7a660c6662a06d9d781ab",
+    "size": 317864,
+    "orig_sha": "7f7efa63d833e546215276bf2011def5f4ca0c3f4295bae929cbc2c8b1aced0f",
+    "differs": true
+   },
+   "wallet11_com_solflare_mobile.dylib": {
+    "file": "wallet11_com_solflare_mobile.dylib",
+    "sha256": "51d1c9a69413c03dddb6618d37b7e487b891cf8954bf503bc29624abede82bdd",
+    "size": 353208,
+    "orig_sha": "7c4a2b388acda213783f3edf8011d3155822f7dd12ad4cb34042aa4939549215",
+    "differs": true
+   },
+   "wallet12_com_global_wallet_ios.dylib": {
+    "file": "wallet12_com_global_wallet_ios.dylib",
+    "sha256": "c915be1e836272b3c1540a7fc980fc2c1853972a9c3236643931018c18d45fee",
+    "size": 284736,
+    "orig_sha": "cb71c207883f117c8d9b14c94b491f26a41fb228cec1cd6e972a379694d304e3",
+    "differs": true
+   },
+   "wallet13_com_tonhub_app.dylib": {
+    "file": "wallet13_com_tonhub_app.dylib",
+    "sha256": "fc62d2eacb5945ff61ae5362a47c9163922bdac88094161fecfa041c2c7bb888",
+    "size": 417824,
+    "orig_sha": "ad5bec478632e1cae28ca09de61512b3ad81c6d7048a292c9ff142d921cc3242",
+    "differs": true
+   },
+   "wallet14_com_jbig_tonkeeper.dylib": {
+    "file": "wallet14_com_jbig_tonkeeper.dylib",
+    "sha256": "c8677ccb3ff47bbfaf95c1789061a99a8a2900df9c171a62a6df08dc558e2ec9",
+    "size": 370680,
+    "orig_sha": "63561483d66bc5e5e9427356e4f5184191322d6b57ae72740a9c0fcf383c1276",
+    "differs": true
+   },
+   "wallet15_com_tronlink_hdwallet.dylib": {
+    "file": "wallet15_com_tronlink_hdwallet.dylib",
+    "sha256": "7184dc41532b6472a8cdeceb68b37d2a4c6806c6d4a43f3f93b25a5a73f60a7c",
+    "size": 319232,
+    "orig_sha": "2c1c6331f23c9714b52909b9e65f79e4bae1caf33a332e8ca1ab2faabdc5918a",
+    "differs": true
+   },
+   "wallet16_com_sixdays_trust.dylib": {
+    "file": "wallet16_com_sixdays_trust.dylib",
+    "sha256": "1068d95ce496efd68e1a0e6caa9485318bb13b9e07ed31efbf0b3c67afd44981",
+    "size": 6789472,
+    "orig_sha": "e8496549e529a31288b9f9cbe2687e68dd91c3d69871d80ffc7c97a9a561af6f",
+    "differs": true
+   },
+   "wallet17_com_uniswap_mobile.dylib": {
+    "file": "wallet17_com_uniswap_mobile.dylib",
+    "sha256": "84f940e12006075726be4f99ba55a45fc86f59cc5b141e667e2cf9eae2f0e95a",
+    "size": 334872,
+    "orig_sha": "92ffdeea2e672b2f4d4e23b90c577bacb9a08a605a4adc4d4b27d8725e4d0c42",
+    "differs": true
+   },
+   "wallet18_com_okex_OKExAppstoreFull.dylib": {
+    "file": "wallet18_com_okex_OKExAppstoreFull.dylib",
+    "sha256": "e66eae846b36517ea847e0c64dfc0010d4dff3e2179e7ca291044e0d9d8e623b",
+    "size": 2421328,
+    "orig_sha": "3a70037c53a785332db10ecc351ad9f88cf283e929435fdedcc54013cb4ac7f5",
+    "differs": true
+   }
+  },
+  "set3": {
+   "aware_retreat.css": {
+    "file": "aware_retreat.css",
+    "sha256": "7293a009f467389342094ef222da180db842a5cff11249375cf4fbfc748c74d2",
+    "size": 412141,
+    "orig_sha": "efc2d59716f4bcccd25bb847363855a6ec6f0ba15d0cac37e3b6264b524d6b31",
+    "differs": true
+   },
+   "core_a5.dylib": {
+    "file": "core_a5.dylib",
+    "sha256": "6ce0ff8abe5140c054558086e0c0a52ee4e351d0a5d3c8599c2acf4f5d888934",
+    "size": 1396512,
+    "orig_sha": "7fc50dda56878cde9df65982b963bdbc6f46fb608bd3ef5b2465d67ad6726453",
+    "differs": true
+   },
+   "core_v6.dylib": {
+    "file": "core_v6.dylib",
+    "sha256": "4a355da9182beb1fc860e85affd3da1a71ed6b2bd00d9ebdcc33786090bb0ddf",
+    "size": 1347520,
+    "orig_sha": "a50c4da5c92636b2b1f170cdce3bd967a213886a8df5656cf3519214fcecfac5",
+    "differs": true
+   },
+   "future-destroy.htm": {
+    "file": "future-destroy.htm",
+    "sha256": "26e33f14058d0f8ae83eff69bb89ffe05a4591cf3fe30aeb3a44e11562e40873",
+    "size": 402800,
+    "orig_sha": "7ff5bb16cd5f8c92bc4fec72bba162662f202af075418db5000a1b4f81489fc2",
+    "differs": true
+   },
+   "short_thing.js": {
+    "file": "short_thing.js",
+    "sha256": "e1684dea5c62ef6d55bdadf4fc27a363d1519e86c0cc3272f70b602a687ed219",
+    "size": 269232,
+    "orig_sha": "2dc2103d161fa54561ef73188cc05c5936c52b34a6a92922651cb61b18510e2a",
+    "differs": true
+   },
+   "stage2.dylib": {
+    "file": "stage2.dylib",
+    "sha256": "b65c58889888e4bd26edca151e450e156766fd5350aa3d7a9bd254e99821fa6b",
+    "size": 511632,
+    "orig_sha": "8973e80ab494c02463d4123f76fc5e2dca2ea2c097317d246323d75c1f2eb791",
+    "differs": true
+   },
+   "swap-ritual.ts": {
+    "file": "swap-ritual.ts",
+    "sha256": "dcb5d0a5ec0a65a97bd8833fab464371be27e235d8595116e37001bed00c4348",
+    "size": 257360,
+    "orig_sha": "5f19ba8de74ea5f0d9e16c3b7870d3964403b0949f7154ef13287c78a1e81266",
+    "differs": true
+   },
+   "wallet01_com_bitpie_wallet.dylib": {
+    "file": "wallet01_com_bitpie_wallet.dylib",
+    "sha256": "18ddd1daa29d5c3c802096d20cfa6eb8ae98543e3554b09795a06be937b74c45",
+    "size": 384264,
+    "orig_sha": "ac18b5d5b7ff7412d8b801a8ec39ecf0de9ac13ea4842e14651f30d64b29846a",
+    "differs": true
+   },
+   "wallet02_coin98_crypto_finance_insights.dylib": {
+    "file": "wallet02_coin98_crypto_finance_insights.dylib",
+    "sha256": "47c245d80dd8af37752f63ddd1f5973c7db7c4c1df72c0df8b2109c5a3b067e0",
+    "size": 334896,
+    "orig_sha": "1afc82b74a6154b3f9d58bd6a6b5ee1f809c093f9f17a2e9cc0ecc98713f379f",
+    "differs": true
+   },
+   "wallet03_org_toshi_distribution.dylib": {
+    "file": "wallet03_org_toshi_distribution.dylib",
+    "sha256": "333ddd6625553c43d5fc645dbf95f95b4ad975a9b83fb93511ced3684ac84f9d",
+    "size": 286064,
+    "orig_sha": "3821cf8b95e532f21b8b09fe545769f28538d31c9b39b65a2751cf4300e89fdb",
+    "differs": true
+   },
+   "wallet04_exodus-movement_exodus.dylib": {
+    "file": "wallet04_exodus-movement_exodus.dylib",
+    "sha256": "44943c674586c4b990cceed07c16b7ca0123ff6c380d2efde33eb53d1143fb5a",
+    "size": 351144,
+    "orig_sha": "b19c335a7ce19bc66a972d133e42bcaade819bea15a3963c1d49dd5b2c8c34d0",
+    "differs": true
+   },
+   "wallet05_im_token_app.dylib": {
+    "file": "wallet05_im_token_app.dylib",
+    "sha256": "1e90448547b54c7bbbe5fd4c76298cce183bb7649b7f692f9dd3aaacee3be7b6",
+    "size": 417904,
+    "orig_sha": "b95ce10c6894a39d19673a40bbbd3c62905d4824b5b91627a3d2eadd657c9622",
+    "differs": true
+   },
+   "wallet06_com_kyrd_krystal_ios.dylib": {
+    "file": "wallet06_com_kyrd_krystal_ios.dylib",
+    "sha256": "f4a22f1b33aec9af680cf39f6c1363421cdba2453cdcddb9d40c74e30c9bdba3",
+    "size": 520808,
+    "orig_sha": "b28341ee30271153073eb695a58dfa3610ef74bb1be597b6b9215c5c0df49d9b",
+    "differs": true
+   },
+   "wallet07_io_metamask_MetaMask.dylib": {
+    "file": "wallet07_io_metamask_MetaMask.dylib",
+    "sha256": "e3036b3c344cf26aebc91fc2221528731161667baff28ac051ff151abfc0c8f6",
+    "size": 335864,
+    "orig_sha": "7aad86e285873da842d304fdd5da1f580e24d7eec813a288b8a447ee4c47a9a5",
+    "differs": true
+   },
+   "wallet08_org_mytonwallet_app.dylib": {
+    "file": "wallet08_org_mytonwallet_app.dylib",
+    "sha256": "0e83f31d58fa7a1a9b57a6c60159db32cc8f15e9efd5b7829d86fe44b27bc3fe",
+    "size": 2505368,
+    "orig_sha": "b834ed3501affc30d45a320deae3387d055f9232f7201b20077cc34dfbabd98a",
+    "differs": true
+   },
+   "wallet09_app_phantom.dylib": {
+    "file": "wallet09_app_phantom.dylib",
+    "sha256": "7ad87aa875a4cd9f3f95951c8faadbbe0aeacf9481baf0b1f324478e52c540cf",
+    "size": 449864,
+    "orig_sha": "313c29aa313b807d36524539227c4f62f0b2bc25ecbc11c1cb5658c9d0e18d21",
+    "differs": true
+   },
+   "wallet10_com_skymavis_Genesis.dylib": {
+    "file": "wallet10_com_skymavis_Genesis.dylib",
+    "sha256": "c0b6a862174b1160f769f415ca04efb69c2dd17ae1a3c52a8baf844ac9976624",
+    "size": 350640,
+    "orig_sha": "7f7efa63d833e546215276bf2011def5f4ca0c3f4295bae929cbc2c8b1aced0f",
+    "differs": true
+   },
+   "wallet11_com_solflare_mobile.dylib": {
+    "file": "wallet11_com_solflare_mobile.dylib",
+    "sha256": "f190283cec272ce6ab16d8cf961fcb2be60996deffccdcd5cc4ed3cb9043ba6e",
+    "size": 402352,
+    "orig_sha": "7c4a2b388acda213783f3edf8011d3155822f7dd12ad4cb34042aa4939549215",
+    "differs": true
+   },
+   "wallet12_com_global_wallet_ios.dylib": {
+    "file": "wallet12_com_global_wallet_ios.dylib",
+    "sha256": "9c8ca34f4b6502b4aee80eeb04d118a94e0d7ad81665e8e800424324cc95fea6",
+    "size": 317504,
+    "orig_sha": "cb71c207883f117c8d9b14c94b491f26a41fb228cec1cd6e972a379694d304e3",
+    "differs": true
+   },
+   "wallet13_com_tonhub_app.dylib": {
+    "file": "wallet13_com_tonhub_app.dylib",
+    "sha256": "1ac3260b6faba0ff1448138c070e40a77bb3c44692150877e8bc2445cc8a4322",
+    "size": 450592,
+    "orig_sha": "ad5bec478632e1cae28ca09de61512b3ad81c6d7048a292c9ff142d921cc3242",
+    "differs": true
+   },
+   "wallet14_com_jbig_tonkeeper.dylib": {
+    "file": "wallet14_com_jbig_tonkeeper.dylib",
+    "sha256": "d41bc8723e463d90f238e15171a52c6002a495b247c5450bc6b7446db1b2f543",
+    "size": 419832,
+    "orig_sha": "63561483d66bc5e5e9427356e4f5184191322d6b57ae72740a9c0fcf383c1276",
+    "differs": true
+   },
+   "wallet15_com_tronlink_hdwallet.dylib": {
+    "file": "wallet15_com_tronlink_hdwallet.dylib",
+    "sha256": "72d83f6a9bb23d67bce6028af03ea8766cbc40bc0199229a010c72b365f302f2",
+    "size": 384768,
+    "orig_sha": "2c1c6331f23c9714b52909b9e65f79e4bae1caf33a332e8ca1ab2faabdc5918a",
+    "differs": true
+   },
+   "wallet16_com_sixdays_trust.dylib": {
+    "file": "wallet16_com_sixdays_trust.dylib",
+    "sha256": "bfcdd285526b3206adb669f976d7e0dbbf970f5ddea93c9ddb857c8a5efed88b",
+    "size": 6852256,
+    "orig_sha": "e8496549e529a31288b9f9cbe2687e68dd91c3d69871d80ffc7c97a9a561af6f",
+    "differs": true
+   },
+   "wallet17_com_uniswap_mobile.dylib": {
+    "file": "wallet17_com_uniswap_mobile.dylib",
+    "sha256": "68793c446e92738acfc2678933b9b2fc627993b8d676b945e6c5c551408676c8",
+    "size": 351256,
+    "orig_sha": "92ffdeea2e672b2f4d4e23b90c577bacb9a08a605a4adc4d4b27d8725e4d0c42",
+    "differs": true
+   },
+   "wallet18_com_okex_OKExAppstoreFull.dylib": {
+    "file": "wallet18_com_okex_OKExAppstoreFull.dylib",
+    "sha256": "05d832c938c5bf514c5149f38790a17a26ced72067cf0486dad644458f3a3bff",
+    "size": 2503248,
+    "orig_sha": "3a70037c53a785332db10ecc351ad9f88cf283e929435fdedcc54013cb4ac7f5",
+    "differs": true
+   }
+  },
+  "set4": {
+   "aware_retreat.css": {
+    "file": "aware_retreat.css",
+    "sha256": "ce4d8f2a6cd4cf8c028824c21947a373a719699f14a34b2c32c3d513ce696f65",
+    "size": 395757,
+    "orig_sha": "efc2d59716f4bcccd25bb847363855a6ec6f0ba15d0cac37e3b6264b524d6b31",
+    "differs": true
+   },
+   "core_a5.dylib": {
+    "file": "core_a5.dylib",
+    "sha256": "ae6bc5d984c4fc395ad47c93fffa40c042ee400b2aa7e0c05e1eb67164696511",
+    "size": 1396672,
+    "orig_sha": "7fc50dda56878cde9df65982b963bdbc6f46fb608bd3ef5b2465d67ad6726453",
+    "differs": true
+   },
+   "core_v6.dylib": {
+    "file": "core_v6.dylib",
+    "sha256": "28302727e77a7eb93f061005c5da526b5bf1c919216c39d7da3a8c75d3e0f8ff",
+    "size": 1462048,
+    "orig_sha": "a50c4da5c92636b2b1f170cdce3bd967a213886a8df5656cf3519214fcecfac5",
+    "differs": true
+   },
+   "future-destroy.htm": {
+    "file": "future-destroy.htm",
+    "sha256": "3da3a15c24fb8c6c9c9ca2452f345d4df20bb3169bb461a14f0a15deec7f2106",
+    "size": 419184,
+    "orig_sha": "7ff5bb16cd5f8c92bc4fec72bba162662f202af075418db5000a1b4f81489fc2",
+    "differs": true
+   },
+   "short_thing.js": {
+    "file": "short_thing.js",
+    "sha256": "2bc44894dd0f87c092f4fd0b6073c98ed630ec02b1c7fd23bffcb10a18b97084",
+    "size": 302000,
+    "orig_sha": "2dc2103d161fa54561ef73188cc05c5936c52b34a6a92922651cb61b18510e2a",
+    "differs": true
+   },
+   "stage2.dylib": {
+    "file": "stage2.dylib",
+    "sha256": "070e909691e034b1e8c01221416d3322b874a45dddcc70d744ab709af1c21880",
+    "size": 495248,
+    "orig_sha": "8973e80ab494c02463d4123f76fc5e2dca2ea2c097317d246323d75c1f2eb791",
+    "differs": true
+   },
+   "swap-ritual.ts": {
+    "file": "swap-ritual.ts",
+    "sha256": "55e7484048e3dd893900f4fb6338c83279f669bef27e3e075d7ab6ba9be1d98d",
+    "size": 306512,
+    "orig_sha": "5f19ba8de74ea5f0d9e16c3b7870d3964403b0949f7154ef13287c78a1e81266",
+    "differs": true
+   },
+   "wallet01_com_bitpie_wallet.dylib": {
+    "file": "wallet01_com_bitpie_wallet.dylib",
+    "sha256": "a69baf04a21ad2a6a1f4d41fc502399e4f45a64c280683b28389d81504d91961",
+    "size": 417032,
+    "orig_sha": "ac18b5d5b7ff7412d8b801a8ec39ecf0de9ac13ea4842e14651f30d64b29846a",
+    "differs": true
+   },
+   "wallet02_coin98_crypto_finance_insights.dylib": {
+    "file": "wallet02_coin98_crypto_finance_insights.dylib",
+    "sha256": "a60117310f7374d380deb3c6c79ad89dcf63b748dcaf4f931038c70aa6096b07",
+    "size": 318512,
+    "orig_sha": "1afc82b74a6154b3f9d58bd6a6b5ee1f809c093f9f17a2e9cc0ecc98713f379f",
+    "differs": true
+   },
+   "wallet03_org_toshi_distribution.dylib": {
+    "file": "wallet03_org_toshi_distribution.dylib",
+    "sha256": "88c80b96b8d306fae775105e27b5a2c083c55478dc7a67e9e98b68d6f403cc76",
+    "size": 351600,
+    "orig_sha": "3821cf8b95e532f21b8b09fe545769f28538d31c9b39b65a2751cf4300e89fdb",
+    "differs": true
+   },
+   "wallet04_exodus-movement_exodus.dylib": {
+    "file": "wallet04_exodus-movement_exodus.dylib",
+    "sha256": "9b1a1b56624d4675e8ecb21416087da455a1df589aa8d71479c7eccf76a87478",
+    "size": 416680,
+    "orig_sha": "b19c335a7ce19bc66a972d133e42bcaade819bea15a3963c1d49dd5b2c8c34d0",
+    "differs": true
+   },
+   "wallet05_im_token_app.dylib": {
+    "file": "wallet05_im_token_app.dylib",
+    "sha256": "4d71ceeb9f95f94ee08943e27ebee2f42f884ae9c81b5d95e509d5cf25425e8f",
+    "size": 335984,
+    "orig_sha": "b95ce10c6894a39d19673a40bbbd3c62905d4824b5b91627a3d2eadd657c9622",
+    "differs": true
+   },
+   "wallet06_com_kyrd_krystal_ios.dylib": {
+    "file": "wallet06_com_kyrd_krystal_ios.dylib",
+    "sha256": "e1d239bd7946ea3514a02a54acb89c3df6de2e3f0681c6ac86344580040f579a",
+    "size": 585728,
+    "orig_sha": "b28341ee30271153073eb695a58dfa3610ef74bb1be597b6b9215c5c0df49d9b",
+    "differs": true
+   },
+   "wallet07_io_metamask_MetaMask.dylib": {
+    "file": "wallet07_io_metamask_MetaMask.dylib",
+    "sha256": "7f0702973fe06f3c5e0906cd3b204e99fb981d090f74482cba7fee8ec70e4371",
+    "size": 434168,
+    "orig_sha": "7aad86e285873da842d304fdd5da1f580e24d7eec813a288b8a447ee4c47a9a5",
+    "differs": true
+   },
+   "wallet08_org_mytonwallet_app.dylib": {
+    "file": "wallet08_org_mytonwallet_app.dylib",
+    "sha256": "facb165a7e12ea6e629bf381bbfe95302e7d9efe8bcb9afc786335343309eef7",
+    "size": 2488984,
+    "orig_sha": "b834ed3501affc30d45a320deae3387d055f9232f7201b20077cc34dfbabd98a",
+    "differs": true
+   },
+   "wallet09_app_phantom.dylib": {
+    "file": "wallet09_app_phantom.dylib",
+    "sha256": "703cc8eb2524b4408a849e62eb95ce3c256a5e45522c7c44b0262e4fe0f451cf",
+    "size": 449864,
+    "orig_sha": "313c29aa313b807d36524539227c4f62f0b2bc25ecbc11c1cb5658c9d0e18d21",
+    "differs": true
+   },
+   "wallet10_com_skymavis_Genesis.dylib": {
+    "file": "wallet10_com_skymavis_Genesis.dylib",
+    "sha256": "53f26e08924fbfc79706ece815d31d65fc057473a482916bfc1bcfa26ba03a76",
+    "size": 367016,
+    "orig_sha": "7f7efa63d833e546215276bf2011def5f4ca0c3f4295bae929cbc2c8b1aced0f",
+    "differs": true
+   },
+   "wallet11_com_solflare_mobile.dylib": {
+    "file": "wallet11_com_solflare_mobile.dylib",
+    "sha256": "5b88f9d44f98a929af685a4b585911f7502941a87fc4c2ae62f267648057a374",
+    "size": 402360,
+    "orig_sha": "7c4a2b388acda213783f3edf8011d3155822f7dd12ad4cb34042aa4939549215",
+    "differs": true
+   },
+   "wallet12_com_global_wallet_ios.dylib": {
+    "file": "wallet12_com_global_wallet_ios.dylib",
+    "sha256": "9ff7bdc39b2d01a66352dca2a1fb982a50fec7ec747908283d1db65544c1f007",
+    "size": 366656,
+    "orig_sha": "cb71c207883f117c8d9b14c94b491f26a41fb228cec1cd6e972a379694d304e3",
+    "differs": true
+   },
+   "wallet13_com_tonhub_app.dylib": {
+    "file": "wallet13_com_tonhub_app.dylib",
+    "sha256": "4d9c86e5eac49c0284893b91ad770965ddb08d47a90d4a1788bbd8e03e9cdb17",
+    "size": 450600,
+    "orig_sha": "ad5bec478632e1cae28ca09de61512b3ad81c6d7048a292c9ff142d921cc3242",
+    "differs": true
+   },
+   "wallet14_com_jbig_tonkeeper.dylib": {
+    "file": "wallet14_com_jbig_tonkeeper.dylib",
+    "sha256": "615c9fbe60ffcbbb3d8945a14a9cb6f7dea2fe02e9828998964526133aabdb03",
+    "size": 370680,
+    "orig_sha": "63561483d66bc5e5e9427356e4f5184191322d6b57ae72740a9c0fcf383c1276",
+    "differs": true
+   },
+   "wallet15_com_tronlink_hdwallet.dylib": {
+    "file": "wallet15_com_tronlink_hdwallet.dylib",
+    "sha256": "e53e0a0a521b1163f35f4bb2bb5140ec0270695c57b41eb3d21d89c8f3818d16",
+    "size": 352000,
+    "orig_sha": "2c1c6331f23c9714b52909b9e65f79e4bae1caf33a332e8ca1ab2faabdc5918a",
+    "differs": true
+   },
+   "wallet16_com_sixdays_trust.dylib": {
+    "file": "wallet16_com_sixdays_trust.dylib",
+    "sha256": "9b05524bbf22950d3231cbdf911552cf89974ee0f1dea503be6d51f24083e1e2",
+    "size": 6773088,
+    "orig_sha": "e8496549e529a31288b9f9cbe2687e68dd91c3d69871d80ffc7c97a9a561af6f",
+    "differs": true
+   },
+   "wallet17_com_uniswap_mobile.dylib": {
+    "file": "wallet17_com_uniswap_mobile.dylib",
+    "sha256": "ade5af0dab7ab80a483539b4c93fa2d175be5c90e88e9cc6760026f1f14617bb",
+    "size": 334872,
+    "orig_sha": "92ffdeea2e672b2f4d4e23b90c577bacb9a08a605a4adc4d4b27d8725e4d0c42",
+    "differs": true
+   },
+   "wallet18_com_okex_OKExAppstoreFull.dylib": {
+    "file": "wallet18_com_okex_OKExAppstoreFull.dylib",
+    "sha256": "b97c4e6c74a3f0bd4a4cb7d33deecd70566aeefdbdf3a807161cea698e8835d7",
+    "size": 2388560,
+    "orig_sha": "3a70037c53a785332db10ecc351ad9f88cf283e929435fdedcc54013cb4ac7f5",
+    "differs": true
+   }
+  }
+ }
+}

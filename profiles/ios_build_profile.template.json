@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "ios": "18.5",
+  "build": "22F76",
+  "device": "iPhoneXX,X",
+  "source": {
+    "cache_path": "C:/path/to/dyld_shared_cache_arm64e",
+    "cache_sha256": "replace-with-cache-sha256",
+    "magic": "dyld_v1 arm64e",
+    "file_size": 0
+  },
+  "dyld": {
+    "text_region": null,
+    "data_region": null,
+    "auth_region": null,
+    "linkedit_region": null,
+    "slide_info_v5": null
+  },
+  "offsets": {
+    "dyld_cache_slide_info": null,
+    "dyld_shared_cache_base": null,
+    "arraybuffer_data_offset": null,
+    "float64array_vector_offset": null,
+    "jsc_butterfly_offset": null,
+    "jsc_structureID_offset": null
+  },
+  "symbols": {
+    "libsystem_kernel.dylib": {
+      "mach_task_self_": null,
+      "mach_msg": null,
+      "mach_vm_read": null,
+      "mach_vm_write": null
+    },
+    "libsystem_malloc.dylib": {
+      "malloc": null,
+      "free": null
+    }
+  },
+  "gadgets": {
+    "load_x0_from_x1": null,
+    "deref_x0_plus_10": null,
+    "blr_x8": null,
+    "epilogue": null,
+    "ret_zero": null,
+    "store_x0_to_x1": null,
+    "add_x0_x1": null
+  },
+  "notes": [
+    "Template only. Generate real values from the matching IPSW dyld_shared_cache.",
+    "Never reuse this file across Apple build trains."
+  ]
+}

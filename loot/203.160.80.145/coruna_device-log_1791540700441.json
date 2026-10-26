@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540700115,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[jd] t=0x10a70c668 I=0xe52831d38 target=0xe52838368"
+    }
+  ]
+}

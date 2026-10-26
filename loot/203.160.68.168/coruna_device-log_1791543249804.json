@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791543249349,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-bridge] beacon loaded, sending success beacon"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791543238972,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[ESE] Building MachOPayloadBuilder..."
+    }
+  ]
+}

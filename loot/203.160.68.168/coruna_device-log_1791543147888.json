@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791542990941,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[intercept] XHR POST body len=143 url=https://wpsdz.com/coruna-loot"
+    }
+  ]
+}

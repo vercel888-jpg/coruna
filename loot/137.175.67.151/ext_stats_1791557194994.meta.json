@@ -1,0 +1,13 @@
+{
+  "ts": 1791557194994,
+  "path": "/stats",
+  "ip": "137.175.67.151",
+  "ua": "curl/7.29.0",
+  "method": "POST",
+  "bodyLen": 10,
+  "content_type": "application/json",
+  "x_device_uuid": "",
+  "category": "",
+  "dropped": false,
+  "noise_rule": ""
+}

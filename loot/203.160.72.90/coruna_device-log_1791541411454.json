@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541411051,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "Downloading payloads/38af3c8ba461079a0edc83585023f76843066dcf/entry1_type0x09.dylib"
+    }
+  ]
+}

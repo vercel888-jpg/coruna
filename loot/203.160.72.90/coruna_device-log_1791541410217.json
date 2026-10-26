@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541409813,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-beacon] sent beacon: stage=rce, execStatus=success"
+    }
+  ]
+}

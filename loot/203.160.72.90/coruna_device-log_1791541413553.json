@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541413122,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-beacon] keychain result: [keychain] 需先完成 PE 阶段"
+    }
+  ]
+}

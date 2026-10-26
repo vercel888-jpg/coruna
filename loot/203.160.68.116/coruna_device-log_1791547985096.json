@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547984644,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-bridge] Sandbox escaped! Loading collection module..."
+    }
+  ]
+}

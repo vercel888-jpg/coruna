@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541342060,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "resolveUrl => https://wpsdz.com/"
+    }
+  ]
+}

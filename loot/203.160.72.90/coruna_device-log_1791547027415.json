@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547027042,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "data address?: 0x306464000"
+    }
+  ]
+}

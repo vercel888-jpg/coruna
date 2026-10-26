@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540695150,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[YA] vector(C+oGn3OG=16)=0x285000000"
+    }
+  ]
+}

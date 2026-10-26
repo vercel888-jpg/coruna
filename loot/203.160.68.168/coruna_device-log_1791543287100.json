@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791543286644,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-bridge] device info sent to /coruna-loot"
+    }
+  ]
+}

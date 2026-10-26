@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791539828095,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[Y] cmd #5 type=0x32 size=32 @0x18b0adcc8"
+    }
+  ]
+}

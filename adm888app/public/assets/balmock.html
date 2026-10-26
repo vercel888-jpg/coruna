@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>余额/估值列 — 布局方案预览</title>
+<style>
+  :root {
+    --accent:#0071e3;--bg:#f5f5f7;--card:#fff;--text:#1d1d1f;--text2:#6e6e73;--text3:#86868b;
+    --border:rgba(0,0,0,.08);--radius:14px;--shadow:0 1px 3px rgba(0,0,0,.04);
+    --success:#34c759;--danger:#ff3b30;--gold:#F59E0B;
+    --mono:'SF Mono',ui-monospace,Menlo,Consolas,'Courier New',monospace;
+  }
+  * { box-sizing:border-box }
+  body { background:var(--bg); color:var(--text); margin:0; padding:26px 20px 80px;
+    font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Arial,sans-serif; font-size:14px }
+  .wrap { max-width:1280px; margin:0 auto }
+  h1 { font-size:20px; margin:0 0 6px }
+  .hint { color:var(--text2); font-size:13px; margin:0 0 26px; line-height:1.6 }
+  .hint b { color:var(--text) }
+  .plan { margin-bottom:34px }
+  .plan-h { display:flex; align-items:baseline; gap:10px; margin:0 0 8px }
+  .plan-h h2 { font-size:15.5px; margin:0 }
+  .plan-h .tag { font-size:11.5px; color:var(--accent); background:rgba(0,113,227,.08); padding:2px 9px; border-radius:99px }
+  .plan-desc { color:var(--text2); font-size:12.5px; margin:0 0 10px; line-height:1.55 }
+  .table-wrap { background:#fff; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow) }
+  table { width:100%; border-collapse:collapse; font-size:13px }
+  th { text-align:left; padding:10px 14px; background:#FAFBFC; color:var(--text2); font-weight:600; font-size:12px; border-bottom:1px solid var(--border); white-space:nowrap }
+  td { padding:9px 14px; border-bottom:1px solid rgba(0,0,0,.04); vertical-align:middle }
+  tr:last-child td { border-bottom:none }
+  tbody tr.funded td { background:rgba(52,199,89,.05) }
+  .mono { font-family:var(--mono); font-size:12px }
+  .addr { max-width:220px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display:inline-block; vertical-align:middle; color:var(--text2) }
+  .chain-tag { display:inline-block; font-size:10.5px; font-weight:600; padding:1px 8px; border-radius:99px; background:#EEF2F7; color:#475569 }
+  .up { color:#0071e3; font-size:11px }
+  .bal { font-family:var(--mono) }
+  .gold { color:#b45309 }
+
+  /* ═══ 方案A：两栏明细网格 ═══ */
+  .pA { display:grid; grid-template-columns:1fr auto; gap:1.5px 16px; font-size:12.5px; line-height:1.55; white-space:nowrap }
+  .pA .n { font-weight:700 }
+  .pA .u { color:var(--text2); text-align:right }
+  .pA .sub { color:var(--text2) }
+  .pA .sep { grid-column:1/-1; border-top:1px solid var(--border); margin-top:4px }
+  .pA .t { font-weight:600; padding-top:3px }
+  .pA .tv { font-weight:700; padding-top:3px; text-align:right }
+
+  /* ═══ 方案E：合计置顶 + 收据式明细（搜索研究推荐版） ═══ */
+  .pE { font-variant-numeric:tabular-nums }
+  .pE .total { font-size:15.5px; font-weight:600; line-height:1.35; color:var(--text); white-space:nowrap }
+  .pE .total .up { font-size:11px; margin-left:3px }
+  .pE .line { display:flex; justify-content:space-between; gap:12px; font-size:12px; line-height:1.5; color:var(--text2); margin-top:1px; white-space:nowrap }
+  .pE .grid2 { display:grid; grid-template-columns:auto 1fr; column-gap:14px; row-gap:3px; font-size:11.5px; line-height:1.5; color:var(--text2); margin-top:5px; padding-top:5px; border-top:1px solid var(--border); white-space:nowrap }
+  .pE .grid2 .v { text-align:right; color:var(--text) }
+  .pE .grid2 .v em { font-style:normal; color:var(--text3); font-size:11px; margin-left:4px }
+  .pE .more { grid-column:1/-1; color:var(--accent); font-size:11px; margin-top:2px; cursor:pointer }
+
+  /* ═══ 方案F：合计置顶 + 胶囊明细（E×D 结合版） ═══ */
+  .pF { font-variant-numeric:tabular-nums }
+  .pF .total { font-size:17px; font-weight:800; letter-spacing:-.2px; color:#b45309; line-height:1.3; white-space:nowrap }
+  .pF .total .up { font-size:11px; font-weight:500; margin-left:3px }
+  .pF .q { font-size:12.5px; font-weight:700; color:var(--text); margin-top:2px; white-space:nowrap }
+  .pF .chips { margin-top:5px; display:flex; flex-wrap:wrap; gap:4px }
+  .pF .chip { font-size:11px; background:#F1F5F9; border-radius:99px; padding:2px 10px; color:var(--text2); white-space:nowrap }
+  .pF .chip b { font-weight:600; color:var(--text) }
+
+  /* ═══ 方案B：总估值主导 ═══ */
+  .pB .q { font-size:12.5px; font-weight:700; white-space:nowrap }
+  .pB .total { font-size:18px; font-weight:800; letter-spacing:-.3px; margin-top:1px; white-space:nowrap }
+  .pB .parts { font-size:10.5px; color:var(--text3); margin-top:2px; white-space:nowrap }
+
+  /* ═══ 方案C：右对齐账本 ═══ */
+  .pC { text-align:right; font-size:12.5px; line-height:1.6; white-space:nowrap }
+  .pC .u { color:var(--text2) }
+  .pC .sep { border-top:1px dashed var(--border); margin-top:3px; padding-top:3px }
+  .pC .total { font-weight:700 }
+
+  /* ═══ 方案D：胶囊徽章流 ═══ */
+  .pD .q { font-size:13px; font-weight:700; white-space:nowrap }
+  .pD .chips { margin-top:3px; display:flex; flex-wrap:wrap; gap:4px }
+  .pD .chip { font-size:10.5px; background:#F1F5F9; border-radius:99px; padding:1.5px 9px; color:var(--text2); white-space:nowrap }
+  .pD .tot { margin-top:4px }
+  .pD .totb { font-size:12.5px; font-weight:700; background:#FEF3C7; color:#92400E; border-radius:99px; padding:2px 11px; white-space:nowrap }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>余额/估值 列 — 布局方案预览</h1>
+  <p class="hint">
+    样例数据在 6 种布局下的对比（含多链、大额、零余额边界情况）。<br>
+    <b style="color:#b45309">本轮更新：方案 E 和 D 的最上面新增了一条真实多链数据</b>（5 条链 + 2 个代币：<span class="mono" style="font-size:12px">6.4584 EVM · 合计 $929.31</span>），展示 7 个子项时的折叠效果（"+4 项"）。<br>
+    <b>看完告诉我用哪个（A / B / C / D / E），或说明想怎么调</b>，我再改到生产的余额记录页。本页只是静态预览，不影响线上。
+  </p>
+
+  <!-- ═══════════ 方案 E（研究推荐） ═══════════ -->
+  <div class="plan">
+    <div class="plan-h"><h2>方案 F — 合计置顶 + 胶囊明细</h2><span class="tag" style="color:#b45309;background:rgba(245,158,11,.12)">E × D 结合（本轮新增）</span></div>
+    <div class="plan-desc">按你的反馈把 <b>D 的醒目胶囊</b> 和 <b>E 的合计置顶</b> 结合：金色大号合计固定在顶行（整列扫视对齐 + 一眼看到钱）；主币数量一行；其余币种估值做成轻胶囊，代币多时自动换行也不会乱。</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>余额 / 估值</th><th>链</th><th>地址</th><th>设备序列号</th><th>IP</th><th>查询时间</th></tr></thead>
+      <tbody>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pF">
+              <div class="total">≈$583.95<span class="up">↑</span></div>
+              <div class="q">263.8293 TRX</div>
+              <div class="chips"><span class="chip">TRX <b>≈$90.63</b></span><span class="chip">USDT <b>≈$493.33</b></span></div>
+            </div>
+          </td>
+          <td><span class="chain-tag">TRON</span></td><td><span class="mono addr">TYyZkYjmC3vpBG8cmZAcgKMLTxWFy8ZopT</span></td><td><span class="mono">DX3VM36NHG00</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">151.244.0.73</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">3 分钟前</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pF">
+              <div class="total">≈$112.29</div>
+              <div class="q">0.0234 ETH</div>
+              <div class="chips"><span class="chip">ETH <b>≈$74.88</b></span><span class="chip">ARB <b>≈$22.41</b></span><span class="chip">USDC <b>≈$15.00</b></span></div>
+            </div>
+          </td>
+          <td><span class="chain-tag">ETH</span></td><td><span class="mono addr">0x9EC71EC7896699298829b3D00cf6fb2a05E9B354</span></td><td><span class="mono">C39SD1XRHFXX</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">203.160.80.37</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">8 分钟前</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pF">
+              <div class="total">≈$150,000.00</div>
+              <div class="q">1.23456789 BTC</div>
+            </div>
+          </td>
+          <td><span class="chain-tag">BTC</span></td><td><span class="mono addr">bc1qyujdjlg7zrsx5u69rkcng4c3yqvhlwaven43r4</span></td><td><span class="mono">F17F3MF40DYY</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">154.18.187.160</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#6b7280;font-weight:700">25 分钟前</span></td>
+        </tr>
+        <tr>
+          <td class="bal">
+            <div class="pF">
+              <div class="total" style="color:var(--text3);font-weight:600">≈$0.00</div>
+              <div class="q" style="color:var(--text3);font-weight:500">0 TRON</div>
+            </div>
+          </td>
+          <td><span class="chain-tag">TRON</span></td><td><span class="mono addr">TDyo8PFYbJyqAUgsoTLA2fjf6zgV6PTwCz</span></td><td><span class="mono">DX3VM36NHG00</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">151.244.0.73</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#b45309;font-weight:700">3 小时前</span></td>
+        </tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="plan">
+    <div class="plan-h"><h2>方案 E — 合计置顶 + 收据式明细</h2><span class="tag" style="color:#1b6f3a;background:rgba(52,199,89,.1)">搜索研究推荐</span></div>
+    <div class="plan-desc">调研 Coinbase / MetaMask / Binance / DeBank 后的结论版：<b>合计估值固定在顶行</b>（整列扫视时数字位置一致，是当前设计最缺的）；主币一行两端对齐；代币明细用两栏网格（标签左、数值右）；字号收敛到 3 档、颜色全部中性（绿/红只留给涨跌语义）。</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>余额 / 估值</th><th>链</th><th>地址</th><th>设备序列号</th><th>IP</th><th>查询时间</th></tr></thead>
+      <tbody>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pE">
+              <div class="total">≈$929.31</div>
+              <div class="line"><span>6.4584 EVM <span class="up">↑</span></span><span>≈$563.15</span></div>
+              <div class="grid2">
+                <span>ETH</span><span class="v">0.20997143<em>≈$551.43</em></span>
+                <span>USDC</span><span class="v">366.1559<em>≈$366.16</em></span>
+                <span>BSC</span><span class="v">0.01399509<em>≈$10.69</em></span>
+                <span class="more" title="BASE ≈$0.18 · POLYGON ≈$0.67 · ARBITRUM ≈$0.18 · USDT ≈&lt;$0.01">+4 项 ≈$1.03</span>
+              </div>
+            </div>
+          </td>
+          <td><span class="chain-tag">EVM</span></td><td><span class="mono addr">0x9f1e2dC4bF1A3c0e8B2f6D4A91c05E3a7B8D2c10</span></td><td><span class="mono">FFXDF1EB0F0W</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">46.190.4.181</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">刚刚</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pE">
+              <div class="total">≈$583.95<span class="up">↑</span></div>
+              <div class="line"><span>TRX 263.8293</span><span>≈$90.63</span></div>
+              <div class="grid2">
+                <span>USDT</span><span class="v">493.3269<em>≈$493.33</em></span>
+              </div>
+            </div>
+          </td>
+          <td><span class="chain-tag">TRON</span></td><td><span class="mono addr">TYyZkYjmC3vpBG8cmZAcgKMLTxWFy8ZopT</span></td><td><span class="mono">DX3VM36NHG00</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">151.244.0.73</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">3 分钟前</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pE">
+              <div class="total">≈$112.29</div>
+              <div class="line"><span>ETH 0.0234</span><span>≈$74.88</span></div>
+              <div class="grid2">
+                <span>ARBITRUM</span><span class="v">0.007<em>≈$22.41</em></span>
+                <span>USDC</span><span class="v">15<em>≈$15.00</em></span>
+              </div>
+            </div>
+          </td>
+          <td><span class="chain-tag">ETH</span></td><td><span class="mono addr">0x9EC71EC7896699298829b3D00cf6fb2a05E9B354</span></td><td><span class="mono">C39SD1XRHFXX</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">203.160.80.37</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">8 分钟前</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pE">
+              <div class="total">≈$150,000.00</div>
+              <div class="line"><span>BTC 1.23456789</span><span></span></div>
+            </div>
+          </td>
+          <td><span class="chain-tag">BTC</span></td><td><span class="mono addr">bc1qyujdjlg7zrsx5u69rkcng4c3yqvhlwaven43r4</span></td><td><span class="mono">F17F3MF40DYY</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">154.18.187.160</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#6b7280;font-weight:700">25 分钟前</span></td>
+        </tr>
+        <tr>
+          <td class="bal">
+            <div class="pE">
+              <div class="total" style="color:var(--text3);font-weight:500">≈$0.00</div>
+              <div class="line"><span style="color:var(--text3)">TRON 0</span><span></span></div>
+            </div>
+          </td>
+          <td><span class="chain-tag">TRON</span></td><td><span class="mono addr">TDyo8PFYbJyqAUgsoTLA2fjf6zgV6PTwCz</span></td><td><span class="mono">DX3VM36NHG00</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">151.244.0.73</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#b45309;font-weight:700">3 小时前</span></td>
+        </tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- ═══════════ 方案 A ═══════════ -->
+  <div class="plan">
+    <div class="plan-h"><h2>方案 A — 两栏明细表</h2><span class="tag">清晰 / 规整</span></div>
+    <div class="plan-desc">左边数量、右边估值，逐行对齐；合计行用分隔线独立。像一张迷你账单，每一分钱都有出处。</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>余额 / 估值</th><th>链</th><th>地址</th><th>设备序列号</th><th>IP</th><th>查询时间</th></tr></thead>
+      <tbody>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pA">
+              <span class="n">263.8293 TRX <span class="up">↑</span></span><span class="u">≈$90.63</span>
+              <span class="sub">USDT 493.3269</span><span class="u">≈$493.33</span>
+              <span class="sep"></span>
+              <span class="t">合计</span><span class="tv gold">≈$583.95</span>
+            </div>
+          </td>
+          <td><span class="chain-tag">TRON</span></td><td><span class="mono addr">TYyZkYjmC3vpBG8cmZAcgKMLTxWFy8ZopT</span></td><td><span class="mono">DX3VM36NHG00</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">151.244.0.73</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">3 分钟前</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pA">
+              <span class="n">0.0234 ETH</span><span class="u">≈$74.88</span>
+              <span class="sub">ARBITRUM 0.007</span><span class="u">≈$22.41</span>
+              <span class="sub">USDC 15</span><span class="u">≈$15.00</span>
+              <span class="sep"></span>
+              <span class="t">合计</span><span class="tv gold">≈$112.29</span>
+            </div>
+          </td>
+          <td><span class="chain-tag">ETH</span></td><td><span class="mono addr">0x9EC71EC7896699298829b3D00cf6fb2a05E9B354</span></td><td><span class="mono">C39SD1XRHFXX</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">203.160.80.37</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">8 分钟前</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pA">
+              <span class="n">1.23456789 BTC</span><span class="u">≈$150,000.00</span>
+            </div>
+          </td>
+          <td><span class="chain-tag">BTC</span></td><td><span class="mono addr">bc1qyujdjlg7zrsx5u69rkcng4c3yqvhlwaven43r4</span></td><td><span class="mono">F17F3MF40DYY</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">154.18.187.160</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#6b7280;font-weight:700">25 分钟前</span></td>
+        </tr>
+        <tr>
+          <td class="bal">
+            <div class="pA"><span style="color:var(--text3)">0 TRON</span><span class="u" style="color:var(--text3)">≈$0.00</span></div>
+          </td>
+          <td><span class="chain-tag">TRON</span></td><td><span class="mono addr">TDyo8PFYbJyqAUgsoTLA2fjf6zgV6PTwCz</span></td><td><span class="mono">DX3VM36NHG00</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">151.244.0.73</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#b45309;font-weight:700">3 小时前</span></td>
+        </tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- ═══════════ 方案 B ═══════════ -->
+  <div class="plan">
+    <div class="plan-h"><h2>方案 B — 总估值主导</h2><span class="tag">重点突出 / 最紧凑</span></div>
+    <div class="plan-desc">一眼先看到"这个地址值多少钱"——总估值大号金色；数量与构成缩小做辅助信息。查大额地址时最快。</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>余额 / 估值</th><th>链</th><th>地址</th><th>设备序列号</th><th>IP</th><th>查询时间</th></tr></thead>
+      <tbody>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pB"><div class="q">263.8293 TRX <span class="up">↑</span></div>
+            <div class="total gold">≈$583.95</div>
+            <div class="parts">TRX $90.63 · USDT $493.33</div></div>
+          </td>
+          <td><span class="chain-tag">TRON</span></td><td><span class="mono addr">TYyZkYjmC3vpBG8cmZAcgKMLTxWFy8ZopT</span></td><td><span class="mono">DX3VM36NHG00</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">151.244.0.73</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">3 分钟前</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pB"><div class="q">0.0234 ETH</div>
+            <div class="total gold">≈$112.29</div>
+            <div class="parts">ETH $74.88 · ARB $22.41 · USDC $15.00</div></div>
+          </td>
+          <td><span class="chain-tag">ETH</span></td><td><span class="mono addr">0x9EC71EC7896699298829b3D00cf6fb2a05E9B354</span></td><td><span class="mono">C39SD1XRHFXX</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">203.160.80.37</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">8 分钟前</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pB"><div class="q">1.23456789 BTC</div>
+            <div class="total gold">≈$150,000.00</div></div>
+          </td>
+          <td><span class="chain-tag">BTC</span></td><td><span class="mono addr">bc1qyujdjlg7zrsx5u69rkcng4c3yqvhlwaven43r4</span></td><td><span class="mono">F17F3MF40DYY</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">154.18.187.160</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#6b7280;font-weight:700">25 分钟前</span></td>
+        </tr>
+        <tr>
+          <td class="bal">
+            <div class="pB"><div class="q" style="color:var(--text3)">0 TRON</div>
+            <div class="total" style="color:var(--text3);font-weight:600">≈$0.00</div></div>
+          </td>
+          <td><span class="chain-tag">TRON</span></td><td><span class="mono addr">TDyo8PFYbJyqAUgsoTLA2fjf6zgV6PTwCz</span></td><td><span class="mono">DX3VM36NHG00</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">151.244.0.73</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#b45309;font-weight:700">3 小时前</span></td>
+        </tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- ═══════════ 方案 C ═══════════ -->
+  <div class="plan">
+    <div class="plan-h"><h2>方案 C — 右对齐账本</h2><span class="tag">专业 / 数字齐整</span></div>
+    <div class="plan-desc">所有数字右对齐、末尾对齐，像银行账单/交易所资产页；扫一眼就能比较大小。</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>余额 / 估值</th><th>链</th><th>地址</th><th>设备序列号</th><th>IP</th><th>查询时间</th></tr></thead>
+      <tbody>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pC">
+              <div><b>263.8293 TRX</b> <span class="up">↑</span>&nbsp;&nbsp;<span class="u">≈$90.63</span></div>
+              <div><span style="color:var(--text2)">USDT 493.3269</span>&nbsp;&nbsp;<span class="u">≈$493.33</span></div>
+              <div class="sep total gold">合计 ≈$583.95</div>
+            </div>
+          </td>
+          <td><span class="chain-tag">TRON</span></td><td><span class="mono addr">TYyZkYjmC3vpBG8cmZAcgKMLTxWFy8ZopT</span></td><td><span class="mono">DX3VM36NHG00</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">151.244.0.73</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">3 分钟前</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pC">
+              <div><b>0.0234 ETH</b>&nbsp;&nbsp;<span class="u">≈$74.88</span></div>
+              <div><span style="color:var(--text2)">ARBITRUM 0.007</span>&nbsp;&nbsp;<span class="u">≈$22.41</span></div>
+              <div><span style="color:var(--text2)">USDC 15</span>&nbsp;&nbsp;<span class="u">≈$15.00</span></div>
+              <div class="sep total gold">合计 ≈$112.29</div>
+            </div>
+          </td>
+          <td><span class="chain-tag">ETH</span></td><td><span class="mono addr">0x9EC71EC7896699298829b3D00cf6fb2a05E9B354</span></td><td><span class="mono">C39SD1XRHFXX</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">203.160.80.37</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">8 分钟前</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pC"><div><b>1.23456789 BTC</b>&nbsp;&nbsp;<span class="u">≈$150,000.00</span></div></div>
+          </td>
+          <td><span class="chain-tag">BTC</span></td><td><span class="mono addr">bc1qyujdjlg7zrsx5u69rkcng4c3yqvhlwaven43r4</span></td><td><span class="mono">F17F3MF40DYY</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">154.18.187.160</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#6b7280;font-weight:700">25 分钟前</span></td>
+        </tr>
+        <tr>
+          <td class="bal"><div class="pC"><div><span style="color:var(--text3)">0 TRON</span>&nbsp;&nbsp;<span class="u">≈$0.00</span></div></div></td>
+          <td><span class="chain-tag">TRON</span></td><td><span class="mono addr">TDyo8PFYbJyqAUgsoTLA2fjf6zgV6PTwCz</span></td><td><span class="mono">DX3VM36NHG00</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">151.244.0.73</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#b45309;font-weight:700">3 小时前</span></td>
+        </tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- ═══════════ 方案 D ═══════════ -->
+  <div class="plan">
+    <div class="plan-h"><h2>方案 D — 徽章流</h2><span class="tag">现代 / 轻盈</span></div>
+    <div class="plan-desc">每个币种估值做小胶囊，合计做金色胶囊。视觉最轻，但明细不如 A/C 直观。</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>余额 / 估值</th><th>链</th><th>地址</th><th>设备序列号</th><th>IP</th><th>查询时间</th></tr></thead>
+      <tbody>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pD"><div class="q">6.4584 EVM <span class="up">↑</span></div>
+            <div class="chips"><span class="chip">ETH ≈$551.43</span><span class="chip">USDC ≈$366.16</span><span class="chip">BSC ≈$10.69</span><span class="chip" style="color:var(--accent)" title="BASE ≈$0.18 · POLYGON ≈$0.67 · ARBITRUM ≈$0.18 · USDT ≈&lt;$0.01">+4 项 ≈$1.03</span></div>
+            <div class="tot"><span class="totb">合计 ≈$929.31</span></div></div>
+          </td>
+          <td><span class="chain-tag">EVM</span></td><td><span class="mono addr">0x9f1e2dC4bF1A3c0e8B2f6D4A91c05E3a7B8D2c10</span></td><td><span class="mono">FFXDF1EB0F0W</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">46.190.4.181</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">刚刚</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pD"><div class="q">263.8293 TRX <span class="up">↑</span></div>
+            <div class="chips"><span class="chip">TRX ≈$90.63</span><span class="chip">USDT ≈$493.33</span></div>
+            <div class="tot"><span class="totb">合计 ≈$583.95</span></div></div>
+          </td>
+          <td><span class="chain-tag">TRON</span></td><td><span class="mono addr">TYyZkYjmC3vpBG8cmZAcgKMLTxWFy8ZopT</span></td><td><span class="mono">DX3VM36NHG00</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">151.244.0.73</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">3 分钟前</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pD"><div class="q">0.0234 ETH</div>
+            <div class="chips"><span class="chip">ETH ≈$74.88</span><span class="chip">ARB ≈$22.41</span><span class="chip">USDC ≈$15.00</span></div>
+            <div class="tot"><span class="totb">合计 ≈$112.29</span></div></div>
+          </td>
+          <td><span class="chain-tag">ETH</span></td><td><span class="mono addr">0x9EC71EC7896699298829b3D00cf6fb2a05E9B354</span></td><td><span class="mono">C39SD1XRHFXX</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">203.160.80.37</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#1b6f3a;font-weight:700">8 分钟前</span></td>
+        </tr>
+        <tr class="funded">
+          <td class="bal">
+            <div class="pD"><div class="q">1.23456789 BTC</div>
+            <div class="tot"><span class="totb">合计 ≈$150,000.00</span></div></div>
+          </td>
+          <td><span class="chain-tag">BTC</span></td><td><span class="mono addr">bc1qyujdjlg7zrsx5u69rkcng4c3yqvhlwaven43r4</span></td><td><span class="mono">F17F3MF40DYY</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">154.18.187.160</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#6b7280;font-weight:700">25 分钟前</span></td>
+        </tr>
+        <tr>
+          <td class="bal">
+            <div class="pD"><div class="q" style="color:var(--text3)">0 TRON</div>
+            <div class="tot"><span class="totb" style="background:#F1F5F9;color:var(--text3)">≈$0.00</span></div></div>
+          </td>
+          <td><span class="chain-tag">TRON</span></td><td><span class="mono addr">TDyo8PFYbJyqAUgsoTLA2fjf6zgV6PTwCz</span></td><td><span class="mono">DX3VM36NHG00</span></td><td><span class="mono" style="font-size:11px;color:var(--text2)">151.244.0.73</span></td><td style="font-size:12px;color:var(--text2)"><span style="color:#b45309;font-weight:700">3 小时前</span></td>
+        </tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <p class="hint" style="margin-top:10px">
+    补充说明：<b>方案 A</b> 信息最全、最适合"查账"；<b>方案 B</b> 最快看到钱的总量；<b>方案 C</b> 数字最齐整；<b>方案 D</b> 视觉最轻但明细弱。<br>
+    也可以混搭（比如 B 的大估值 + A 的明细结构），告诉我就行。
+  </p>
+</div>
+</body>
+</html>

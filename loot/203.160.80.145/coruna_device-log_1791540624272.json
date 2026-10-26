@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540623937,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[SBE] cr() done, resolving symbols..."
+    }
+  ]
+}

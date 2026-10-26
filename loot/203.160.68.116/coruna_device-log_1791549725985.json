@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791549725558,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[ESE] calling sandboxEscape.Ad()..."
+    }
+  ]
+}

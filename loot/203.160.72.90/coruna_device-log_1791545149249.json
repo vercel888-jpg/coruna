@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791545148806,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[SBE] LinkBuffer resolved: 0x18b9604cc"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791541218778,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[oh] symtab read complete"
+    }
+  ]
+}

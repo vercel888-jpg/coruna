@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791540696418,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[YA] N=read32(B+0)=0x1 writing N+32=0x21"
+    }
+  ]
+}

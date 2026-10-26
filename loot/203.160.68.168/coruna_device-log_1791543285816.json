@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791543285360,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-bridge] Sandbox escaped! Loading beacon for device registration..."
+    }
+  ]
+}

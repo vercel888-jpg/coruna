@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791543248680,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[coruna-bridge] wallet scan sent: 1 items"
+    }
+  ]
+}

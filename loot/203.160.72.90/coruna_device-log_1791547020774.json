@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547020399,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[YA] entered, allocating 16MB buffer..."
+    }
+  ]
+}

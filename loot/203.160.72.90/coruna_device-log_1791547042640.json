@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547042276,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[collect] requesting keychain dump from bootstrap..."
+    }
+  ]
+}

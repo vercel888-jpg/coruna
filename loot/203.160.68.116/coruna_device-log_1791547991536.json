@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547991092,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[collect] no wallet data in web storage"
+    }
+  ]
+}

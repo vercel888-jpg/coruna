@@ -1,0 +1,16 @@
+{
+  "source": "bootstrap",
+  "cmd": "device_info",
+  "data": {
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6 Mobile/15E148 Safari/604.1",
+    "platform": "iPhone",
+    "language": "zh-CN",
+    "cookieEnabled": true,
+    "hardware": 4,
+    "screen": "375x667",
+    "timezone": "America/Los_Angeles",
+    "localStorage": "",
+    "sessionStorage": "coruna_chain_done"
+  },
+  "ts": 1791543247644
+}

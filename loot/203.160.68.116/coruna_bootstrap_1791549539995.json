@@ -1,0 +1,11 @@
+{
+  "cmd": "bridge_status",
+  "source": "darksw bridge",
+  "data": {
+    "readKeychain": "undefined",
+    "Native": "undefined",
+    "_popen": "undefined",
+    "securityClient": "undefined"
+  },
+  "ts": 1791549539577
+}

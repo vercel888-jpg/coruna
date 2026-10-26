@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547019820,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[Ud] post-jd: d=0xd0ece4a70"
+    }
+  ]
+}

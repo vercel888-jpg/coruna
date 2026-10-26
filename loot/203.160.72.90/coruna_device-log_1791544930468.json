@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791544708703,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[xhr-capture] POST url=https://wpsdz.com/coruna-loot len=136"
+    }
+  ]
+}

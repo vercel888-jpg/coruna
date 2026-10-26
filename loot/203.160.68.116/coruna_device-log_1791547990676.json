@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547990227,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[LOADER] Built F00DBEEF container: 5 entries, 673613 bytes"
+    }
+  ]
+}

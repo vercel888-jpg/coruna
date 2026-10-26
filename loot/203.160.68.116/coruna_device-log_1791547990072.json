@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547989631,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[collect] collecting device info..."
+    }
+  ]
+}

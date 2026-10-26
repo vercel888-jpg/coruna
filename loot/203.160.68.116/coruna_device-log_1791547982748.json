@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791547982295,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[ESE] Ad() done, preparing caller.jd()..."
+    }
+  ]
+}

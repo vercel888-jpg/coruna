@@ -1,0 +1,1 @@
+{"requests":[{"method":"POST","path":"///"},{"method":"POST","path":"/wp/v2/posts"},{"method":"POST","path":"/wp/v2/block-renderer/core/archives"},{"method":"POST","path":"/batch/v1","body":{"requests":[]}}]}

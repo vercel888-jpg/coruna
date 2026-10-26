@@ -1,0 +1,10 @@
+{
+  "source": "device-log",
+  "ts": 1791550184523,
+  "msgs": [
+    {
+      "level": "log",
+      "msg": "[KEYCHAIN] platformModule=object"
+    }
+  ]
+}
